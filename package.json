@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@vant/weapp": "^1.6.5",
+    "miniprogram-api-promise": "^1.0.4",
+    "wx-nav": "0.0.3"
+  }
+}

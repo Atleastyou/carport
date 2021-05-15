@@ -1,0 +1,18 @@
+view,
+text,
+scroll-view,
+input,
+button,
+image,
+cover-view,
+textarea,
+navigator,
+page {
+  box-sizing: border-box;
+}
+page {
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+image {
+  vertical-align: top;
+}

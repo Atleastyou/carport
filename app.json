@@ -1,0 +1,62 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/launch/index",
+    "pages/account/index/index",
+    "pages/carport/index/index"
+  ],
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#999",
+    "selectedColor": "#000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabBar/unselect_sy.png",
+        "selectedIconPath": "images/tabBar/select_sy.png"
+      },
+      {
+        "pagePath": "pages/carport/index/index",
+        "text": "选车位",
+        "iconPath": "images/tabBar/unselect_shopping.png",
+        "selectedIconPath": "images/tabBar/select_shopping.png"
+      },
+      {
+        "pagePath": "pages/account/index/index",
+        "text": "我的",
+        "iconPath": "images/tabBar/unselect_wd.png",
+        "selectedIconPath": "images/tabBar/select_wd.png"
+      }
+    ]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-switch": "@vant/weapp/switch/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-stepper": "@vant/weapp/stepper/index"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "我们将获取您的地址信息"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

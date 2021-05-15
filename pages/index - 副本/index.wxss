@@ -1,0 +1,35 @@
+.intro {
+  width: 100%;
+  height: 100vh;
+}
+.intro-container {
+  position: relative;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.intro-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.tag-item {
+  position: absolute;
+}
+.intro-btns {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  display: flex;
+}
+.intro-btn {
+  width: 100rpx;
+  height: 50rpx;
+  text-align: center;
+  background: #409eff;
+}
+view {
+  box-sizing: border-box;
+}
