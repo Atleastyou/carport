@@ -13,90 +13,9 @@
     "miniprogram": {
       "list": [
         {
-          "id": -1,
-          "name": "pages/introduce/index",
-          "pathName": "pages/introduce/index",
+          "name": "pages/search/index",
+          "pathName": "pages/search/index",
           "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/tool/video/detail/index",
-          "pathName": "pages/tool/video/detail/index",
-          "query": "id=14",
-          "scene": null
-        },
-        {
-          "id": 2,
-          "name": "pages/tool/video/edit/index",
-          "pathName": "pages/tool/video/edit/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/account/about/index",
-          "pathName": "pages/account/about/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "文章",
-          "pathName": "pages/tool/article/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "添加转载链接",
-          "pathName": "pages/tool/article/reprint/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 6,
-          "name": "添加转载",
-          "pathName": "pages/tool/article/edit/index",
-          "query": "id=17",
-          "scene": null
-        },
-        {
-          "name": "pages/launch/index",
-          "pathName": "pages/launch/index",
-          "query": "redirect=%2Fpages%2Fcard%2Fpreview%2Findex%3Fid%3D35%26cardId%3D45%26userId%3D35%26login_uid%3D233",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/cutFace/index",
-          "pathName": "pages/cutFace/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/card/createCard/index",
-          "pathName": "pages/card/createCard/index",
-          "query": "id=73",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "欢迎语设置",
-          "pathName": "pages/card/welcome/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/tool/case/edit/index",
-          "pathName": "pages/tool/case/edit/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/introduce/index",
-          "pathName": "pages/introduce/index",
           "scene": null
         }
       ]

@@ -5,6 +5,34 @@
         <text>包头</text>
         <i class="iconfont icon-triangle"></i>
       </view>
+      <navigator class="search-input" url="/pages/search/index" hover-class="none">
+        <input type="text" disabled/>
+      </navigator>
+    </view>
+  </view>
+  <view class="index-swiper">
+    <swiper indicator-dots autoplay>
+      <block wx:for="{{3}}" wx:key="index">
+        <swiper-item>
+          <view class="swiper-banner"></view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="index-content">
+    <view class="content-header">
+      <view class="content-header-title">热门楼盘</view>
+      <view class="content-header-more">
+        <view class="header-more-txt">查看更多</view>
+        <view class="header-more-go">GO>></view>
+      </view>
+    </view>
+    <view class="content-body">
+      <view class="item-body" wx:for="{{10}}" wx:key="index">
+        <view class="item-container">
+          <view class="item-img" style="background-image: url(../../images/demo_picture.jpg);"></view>
+        </view>
+      </view>
     </view>
   </view>
 </view>

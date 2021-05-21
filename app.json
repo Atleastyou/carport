@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/launch/index",
     "pages/account/index/index",
-    "pages/carport/index/index"
+    "pages/carport/index/index",
+    "pages/search/index"
   ],
   "tabBar": {
     "backgroundColor": "#fff",

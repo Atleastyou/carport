@@ -21,22 +21,21 @@
     "checkSiteMap": false,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "bundle": false,
+    "enableEngineNative": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "useApiHostProcess": true,
-    "enableEngineNative": false,
-    "userConfirmedBundleSwitch": false,
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
@@ -70,134 +69,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "id": -1,
-          "name": "个人中心",
-          "pathName": "pages/account/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "开通获客宝海报",
-          "pathName": "pages/company/introduce/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "创建企业版",
-          "pathName": "pages/company/create/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "工作台",
-          "pathName": "pages/company/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "员工管理",
-          "pathName": "pages/company/manage/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "部门设置",
-          "pathName": "pages/company/department/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "搜索员工",
-          "pathName": "pages/company/search/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "添加员工",
-          "pathName": "pages/company/createStaff/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "选择已有ID",
-          "pathName": "pages/company/selectStaff/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "员工信息",
-          "pathName": "pages/company/staffDetail/index",
-          "query": "id=101",
-          "scene": null
-        },
-        {
-          "id": 10,
-          "name": "创建名片",
-          "pathName": "pages/card/createCard/index",
-          "query": "type=company",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/tool/article/edit/index",
-          "pathName": "pages/tool/article/edit/index",
-          "query": "url=https://mp.weixin.qq.com/s/FCOcDl2vSTD6ZqFh3GghZA",
-          "scene": null
-        },
-        {
-          "id": 12,
-          "name": "pages/tool/relationGoods/index",
-          "pathName": "pages/tool/relationGoods/index",
-          "query": "sceneId=51&id=21&apiKey=getVrDetail",
-          "scene": null
-        },
-        {
-          "id": 13,
-          "name": "pages/company/apply/index",
-          "pathName": "pages/company/apply/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/tool/case/index/index",
-          "pathName": "pages/tool/case/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 15,
-          "name": "pages/launch/index",
-          "pathName": "pages/launch/index",
-          "query": "scene=pcl_16177837723393071155308",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/tool/briefcase/detail/index",
-          "pathName": "pages/tool/briefcase/detail/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "公文包",
-          "pathName": "pages/tool/briefcase/index/index",
-          "query": "",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }
