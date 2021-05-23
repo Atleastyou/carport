@@ -36,8 +36,21 @@ App({
       wx.showToast({ title: err.msg, icon: 'none' })
     }
   },
+  getUserInfo() {
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success(res) {
+              console.log(res)
+            }
+          })
+        }
+      }
+    })
+  },
   onLaunch() {
-    this.getSystemInfo()
+    this.getUserInfo()
   },
   onHide () {
     offline()

@@ -1,20 +1,20 @@
 <view class="index">
   <view class="index-header">
     <view class="index-header-search">
-      <view class="search-address">
+      <view class="search-address" bindtap="selectAddress">
         <text>包头</text>
         <i class="iconfont icon-triangle"></i>
       </view>
-      <navigator class="search-input" url="/pages/search/index" hover-class="none">
-        <input type="text" disabled/>
-      </navigator>
+      <view class="search-input" url="/pages/search/index" hover-class="none">
+        <input type="text" placeholder="搜索楼盘"/>
+      </view>
     </view>
   </view>
   <view class="index-swiper">
-    <swiper indicator-dots autoplay>
-      <block wx:for="{{3}}" wx:key="index">
+    <swiper indicator-dots autoplay easing-function="easeInOutCubic">
+      <block wx:for="{{banners}}" wx:key="index">
         <swiper-item>
-          <view class="swiper-banner"></view>
+          <view class="swiper-banner" style="background-image: url({{item}});"></view>
         </swiper-item>
       </block>
     </swiper>

@@ -4,7 +4,8 @@
     "pages/launch/index",
     "pages/account/index/index",
     "pages/carport/index/index",
-    "pages/search/index"
+    "pages/search/index",
+    "pages/address/index"
   ],
   "tabBar": {
     "backgroundColor": "#fff",

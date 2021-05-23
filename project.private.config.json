@@ -17,6 +17,24 @@
           "pathName": "pages/search/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "区域选择",
+          "pathName": "pages/address/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/login/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "楼盘列表",
+          "pathName": "pages/carport/index/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

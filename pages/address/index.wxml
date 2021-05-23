@@ -1,0 +1,90 @@
+<view class="index">
+  <van-search shape="round" placeholder="城市名/拼音"></van-search>
+  <scroll-view class="index-container" scroll-y style="height: calc(100vh - 54px);" scroll-into-view="{{scrollIntoView}}">
+    <view class="index-addres-header">
+      <view class="address-fast" id="fast">
+        <view class="address-fast-header">
+          <view class="address-fast-select">当前：深圳全城</view>
+          <!-- <view class="address-fast-ft">
+            <text>切换区县</text>
+            <van-icon name="arrow-down" />
+          </view> -->
+        </view>
+        <view class="address-fast-body">
+          <view class="address-tag">全城</view>
+          <view class="address-tag">福田区</view>
+          <view class="address-tag">罗湖区</view>
+          <view class="address-tag">南山区</view>
+          <view class="address-tag">宝安区</view>
+          <view class="address-tag">龙岗区</view>
+          <view class="address-tag">龙华区</view>
+          <view class="address-tag">盐田区</view>
+          <view class="address-tag">南澳大鹏新区</view>
+        </view>
+      </view>
+      <view class="address-location" id="location">
+        <view class="address-location-title">定位/最近访问</view>
+        <view class="address-location-body">
+          <view class="address-tag">深圳</view>
+          <view class="address-tag">南昌</view>
+        </view>
+      </view>
+      <view class="address-location address-location-hot" id="hot">
+        <view class="address-location-title">热门城市</view>
+        <view class="address-location-body">
+          <view class="address-tag">上海</view>
+          <view class="address-tag">北京</view>
+          <view class="address-tag">广州</view>
+          <view class="address-tag">成都</view>
+          <view class="address-tag">杭州</view>
+          <view class="address-tag">南京</view>
+        </view>
+      </view>
+    </view>
+    <view class="address-select" id="A">
+      <view class="address-select-title">A</view>
+      <view class="address-select-body">
+        <view class="address-select-item">阿拉善盟</view>
+        <view class="address-select-item">鞍山</view>
+        <view class="address-select-item">安庆</view>
+        <view class="address-select-item">安阳</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+      </view>
+    </view>
+    <view class="address-select" id="B">
+      <view class="address-select-title">B</view>
+      <view class="address-select-body">
+        <view class="address-select-item">阿拉善盟</view>
+        <view class="address-select-item">鞍山</view>
+        <view class="address-select-item">安庆</view>
+        <view class="address-select-item">安阳</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+      </view>
+    </view>
+    <view class="address-select" id="C">
+      <view class="address-select-title">C</view>
+      <view class="address-select-body">
+        <view class="address-select-item">阿拉善盟</view>
+        <view class="address-select-item">鞍山</view>
+        <view class="address-select-item">安庆</view>
+        <view class="address-select-item">安阳</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+        <view class="address-select-item">安陆</view>
+      </view>
+    </view>
+    <view class="addres-quick">
+      <view class="addres-quick-item" wx:for="{{quicks}}" wx:key="index" bindtap="selectQuick" data-item="{{item}}">{{item}}</view>
+    </view>
+  </scroll-view>
+</view>

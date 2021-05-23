@@ -2,7 +2,18 @@ import {} from '../../../api/index'
 import { queryToObject } from '../../../utils/util'
 const app = getApp()
 Page({
-  data: {},
+  data: {
+    types: [
+      {
+        title: '1-100'
+      }, {
+        title: '100-300'
+      }, {
+        title: '3-500'
+      }
+    ],
+    activeType: '全部'
+  },
   async wxLogin(redirect) {
     try {
       let login_uid = 0

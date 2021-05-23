@@ -1,1 +1,38 @@
-
+<view class="index">
+  <view class="index-header">
+    <view class="index-header-search">
+      <view class="search-address" bindtap="selectAddress">
+        <text>包头</text>
+        <i class="iconfont icon-triangle"></i>
+      </view>
+      <view class="search-input" url="/pages/search/index" hover-class="none">
+        <input type="text" placeholder="搜索楼盘"/>
+      </view>
+    </view>
+  </view>
+  <view class="index-container">
+    <view class="index-dropdown">
+      <van-dropdown-menu>
+        <van-dropdown-item title="{{activeType}}">
+          <van-cell wx:for="{{types}}" wx:item="item" wx:key="index" title="{{item.title}}" bindtap="changeCate" data-index="{{index}}"></van-cell>
+        </van-dropdown-item>
+      </van-dropdown-menu>
+    </view>
+    <scroll-view scroll-y style="height: calc(100vh - 200rpx);" class="index-houses">
+      <view class="house-item">
+        <view class="house-item-img"></view>
+        <view class="house-item-bd">
+          <view class="house-item-title">万科云城●理想城一期</view>
+          <view class="house-item-num">
+            <view class="house-item-num-label">在售车位</view>
+            <view class="house-item-num-bd">133个</view>
+          </view>
+          <view class="house-item-num">
+            <view class="house-item-num-label">购买价格</view>
+            <view class="house-item-num-bd">¥ 12.8—28.8 万</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

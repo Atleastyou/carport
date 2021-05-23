@@ -1,5 +1,5 @@
 <view class="search">
-  <van-search shape="round" background="#4fc08d" placeholder="请输入搜索关键词"></van-search>
+  <van-search shape="round" placeholder="请输入搜索关键词"></van-search>
   <scroll-view class="search-scroll" scroll-y style="height: calc(100vh - 54px);">
     <view class="search-container">
       <view class="history">
