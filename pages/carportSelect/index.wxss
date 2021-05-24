@@ -2,6 +2,14 @@
   width: 100%;
   height: 100vh;
 }
+.intro-movable-area {
+  width: 100%;
+  height: 100%;
+}
+.intro-movable-view {
+  width: 100%;
+  height: 100%;
+}
 .intro-container {
   position: relative;
   padding: 10px;
@@ -10,7 +18,6 @@
   overflow: hidden;
 }
 .intro-image {
-  position: absolute;
   width: 100%;
   height: 100%;
 }

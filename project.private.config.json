@@ -35,6 +35,12 @@
           "pathName": "pages/carport/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "车位选择",
+          "pathName": "pages/carportSelect/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

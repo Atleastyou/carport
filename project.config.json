@@ -39,7 +39,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.16.0",
+  "libVersion": "2.16.1",
   "appid": "wx9f5dc3bcbbb8c0e5",
   "projectname": "%E8%BD%A6%E4%BD%8D%E5%B0%8F%E7%A8%8B%E5%BA%8F",
   "cloudfunctionTemplateRoot": "",
