@@ -1,0 +1,12 @@
+<view class="detail">
+  <view
+    class="detail-container"
+    style="transform: matrix({{matrix.a}}, {{matrix.b}}, {{matrix.c}}, {{matrix.d}}, {{matrix.e}}, {{matrix.f}});transform-origin: {{transformOrigin.x}}px {{transformOrigin.y}}px"
+    bindtouchstart="start"
+    bindtouchmove="moving"
+    bindtouchcancel="end"
+    bindtouchend="end"
+  >
+    <image class="detail-image" src="../../images/demo_picture.jpg"></image>
+  </view>
+</view>

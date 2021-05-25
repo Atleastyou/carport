@@ -41,6 +41,12 @@
           "pathName": "pages/carportSelect/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/carportS/index",
+          "pathName": "pages/carportS/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -2,6 +2,39 @@ const app = getApp()
 
 Page({
   data: {
+    viewSize: {
+      x: '',
+      y: ''
+    },
+    imageSize: {
+      x: '',
+      y: ''
+    },
+    scaleSize: {
+      x: '',
+      y: ''
+    },
+    postTranslate: {
+      x: '',
+      y: ''
+    },
+    bitmapOriginPoint: {
+      x: '',
+      y: ''
+    },
+    clickPoint: {
+      x: '',
+      y: ''
+    },
+    tempPoint: {
+      x: '',
+      y: ''
+    },
+    originScale: {
+      x: '',
+      y: ''
+    },
+    doubleClickZoom: 2,
     imageInfo: {
       top: -480,
       left: -55
@@ -47,14 +80,67 @@ Page({
       src: '../../images/demo_picture.jpg',
       success: function (res) {
         const { width, height } = res
-        that.setData({
-          'imageInfo.width': width,
-          'imageInfo.height': height,
-          'imageInfo.top': '-480',
-          'imageInfo.left': '-55'
-        })
-        // that.createContent()
+        const { windowWidth, windowHeight } = wx.getSystemInfoSync()
+        let viewSize = { x: windowWidth, y: windowHeight }
+        let imageSize = { x: width, y: height }
+        let scalex = viewSize.x / imageSize.x
+        let scaley = viewSize.y / imageSize.y
+        let scale = scalex < scaley ? scalex : scaley
+        let scaleSize = { x: scale * imageSize.x, y: scale * imageSize.y }
+        let bitmapOriginPoint= {}
+        if (scalex < scaley) {
+          that.translationImage(0, viewSize.y / 2 - scaleSize.y / 2)
+          bitmapOriginPoint = {
+            x: 0,
+            y: viewSize.y / 2 - scaleSize.y / 2
+          }
+        } else {
+          that.translationImage(viewSize.x / 2 - scaleSize.x / 2, 0)
+          bitmapOriginPoint = {
+            x: viewSize.x / 2 - scaleSize.x / 2,
+            y: 0
+          }
+        }
+        let originScale = {
+          x: scale,
+          y: scale
+        }
+        that.setData({ 'viewSize': viewSize, 'imageSize': imageSize, 'scaleSize': scaleSize, 'bitmapOriginPoint': bitmapOriginPoint, 'originScale': originScale })
       }
+    })
+  },
+  translationImage(x, y) {
+    this.setData({
+      'postTranslate.x': x,
+      'postTranslate.y': y
+    })
+  },
+  start({ touches }) {
+    let clickPoint = {
+      x: touches[0].clientX,
+      y: touches[0].clientY
+    }
+    let bitmapOriginPoint = this.data.bitmapOriginPoint
+    let scaleSize = this.data.scaleSize
+    let originScale = this.data.originScale
+    let imageSize = this.data.imageSize
+    let tempPoint = {
+      x: (clickPoint.x - bitmapOriginPoint.x) / scaleSize.x,
+      y: (clickPoint.y - bitmapOriginPoint.y) / scaleSize.y
+    }
+    let newScaleSize = {
+      x: originScale.x * 2 * imageSize.x,
+      y: originScale.y * 2 * imageSize.y
+    }
+    let postTranslate = {
+      x: clickPoint.x - (bitmapOriginPoint.x + tempPoint.x * newScaleSize.x),
+      y: clickPoint.y - (bitmapOriginPoint.y + tempPoint.y * newScaleSize.y)
+    }
+    this.setData({
+      'scaleSize': newScaleSize,
+      'postTranslate': postTranslate,
+      'tempPoint': tempPoint,
+      'clickPoint': clickPoint
     })
   },
   changeMovable({ detail }) {
@@ -89,37 +175,25 @@ Page({
   clickTag({ target: { dataset: { item } } }) {
     wx.showToast({ title: item.id, icon: 'none' })
   },
-  start({touches}) {
-    if (touches.length === 1) {
-      this.setData({
-        touches: touches[0]
-      })
-      this.imageLeft = this.data.imageInfo.left
-      this.imageTop = this.data.imageInfo.top
-    } else {
-      this.setData({        touches: touches      })
-      this.setData({
-        distance: this.getDistance(touches)
-      })
-    }
-  },
+  // start({touches}) {
+  //   if (touches.length === 2) {
+  //     this.touchesMove = true
+  //     this.startTouches = touches
+  //   }
+  //   this.initTranslation = this.data.imageInfo
+  // },
   end() {
-    console.log('end')
+    this.touchesMove = false
   },
   moving({ touches }) {
-    if (touches.length === 2) {
-      const xMove = this.data.touches[1].clientX > this.data.touches[0].clientX ? this.data.touches[1].clientX - this.data.touches[0].clientX : this.data.touches[0].clientX - this.data.touches[1].clientX
-      const yMove = this.data.touches[1].clientY > this.data.touches[0].clientY ? this.data.touches[1].clientY - this.data.touches[0].clientY : this.data.touches[0].clientY - this.data.touches[1].clientY
-      let pageX = this.data.touches[1].clientX > this.data.touches[0].clientX ? this.data.touches[1].clientX - (xMove/2) : this.data.touches[0].clientX - (xMove/2)
-      let pageY = this.data.touches[1].clientY > this.data.touches[0].clientY ? this.data.touches[1].clientY - (yMove/2) : this.data.touches[0].clientY - (yMove/2)
-      const { windowWidth, windowHeight } = wx.getSystemInfoSync()
-      let x = this.data.imageInfo.width / (windowWidth / pageX)
-      let y = this.data.imageInfo.height / (windowHeight / pageY)
-      console.log(x, y)
-      this.setData({ 
-        'imageInfo.left': -y,
-        'imageInfo.top': -x
-      })
+    if (touches.length === 2 && this.touchesMove) {
+      let xPoit = (touches[0].clientX + touches[1].clientX) / 2
+      let yPoit = (touches[0].clientY + touches[1].clientY) / 2
+      let x = (xPoit - this.initTranslation.left) / this.initTranslation.width
+      let newx = xPoit - (this.initTranslation.left + x * this.initTranslation.width)
+      let y = (yPoit - this.initTranslation.top) / this.initTranslation.height
+      let newy = yPoit - (this.initTranslation.top + x * this.initTranslation.height)
+      console.log(newx, newy)
     }
     // try {
     //   if (touches.length === 1) {
