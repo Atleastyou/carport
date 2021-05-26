@@ -47,6 +47,24 @@
           "pathName": "pages/carportS/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/account/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单管理",
+          "pathName": "pages/account/order/index",
+          "query": "type=all",
+          "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/account/orderDetail/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

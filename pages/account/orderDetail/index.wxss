@@ -1,0 +1,15 @@
+.detail {
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+}
+.detail-header {
+  padding: 40rpx 20rpx;
+  background: #EC0D0D;
+}
+.detail-header-bd {
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  border-radius: 30rpx;
+}

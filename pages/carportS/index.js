@@ -30,7 +30,41 @@ Page({
       x: 0,
       y: 0
     },
-    originHaveSet: false
+    transformOrigin: {
+      x: 0,
+      y: 0
+    },
+    originHaveSet: false,
+    tags: [
+      {
+        color: 'rgb(255, 0, 0)',
+        height: 70,
+        id: '1001',
+        pageX: 627,
+        pageY: 364,
+        text: 'C16↵16.5',
+        width: 77
+      },
+      {
+        color: 'rgb(255, 255, 0)',
+        height: 70,
+        id: '1002',
+        pageX: 709,
+        pageY: 364,
+        text: 'C16↵16.18',
+        width: 77
+      },
+      {
+        color: 'rgb(255, 255, 0)',
+        height: 162,
+        id: '1002',
+        pageX: 57,
+        pageY: 528,
+        text: 'C16↵16.18',
+        width: 62,
+        rotate: 26
+      }
+    ]
   },
   getImage() {
     let that = this
@@ -102,6 +136,8 @@ Page({
       let translated = { left: this.data.matrix.e, top: this.data.matrix.f }
       let translateX = oneTouch.clientX - this.data.preTouchPosition.x + translated.left
       let translateY = oneTouch.clientY - this.data.preTouchPosition.y + translated.top
+      // if (translateX <= 0) translateX = 0
+      // if (translateY >= this.data.imageInfo.width)  translateY = this.data.imageInfo.width
       let matrix = {
         a: this.data.scaleRatio,
         b: 0,
@@ -123,6 +159,7 @@ Page({
       let two = touches['1']
       let diff = this.getDistance(one.clientX, one.clientY, two.clientX, two.clientY) - this.getDistance(...this.data.preTouchesClientx1y1x2y2) // 新旧差值
       let _scale = this.data.scaleRatio + 0.005 * diff
+      if (_scale <= 0.5) _scale = 0.5
         // 移动视线中心
       this.getDomQuery()
       let origin = this.relativeCoordinate((one.clientX + two.clientX) / 2, (one.clientY + two.clientY) / 2)

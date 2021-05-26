@@ -1,1 +1,77 @@
-<view class="index">我的</view>
+<view class="index">
+  <view class="index-header">
+    <view class="index-header-head" style="background-image: url(../../../images/banner1.jpeg);"></view>
+    <view class="index-header-bd">
+      <view class="user-name">sunshine</view>
+      <view class="user-mobile">146****8006</view>
+    </view>
+  </view>
+  <view class="index-card">
+    <view class="index-card-container">
+      <view class="card-title">我的订单</view>
+      <view class="card-body">
+        <navigator class="card-item" url="/pages/account/order/index?type=all" hover-class="none">
+          <view class="card-item-icon">
+            <i class="iconfont icon-order"></i>
+          </view>
+          <view class="card-item-title">全部订单</view>
+        </navigator>
+        <navigator class="card-item" url="/pages/account/order/index?type=pay" hover-class="none">
+          <view class="card-item-icon">
+            <i class="iconfont icon-dollar"></i>
+          </view>
+          <view class="card-item-title">待支付</view>
+        </navigator>
+        <navigator class="card-item" url="/pages/account/order/index?type=audit" hover-class="none">
+          <view class="card-item-icon">
+            <i class="iconfont icon-audit"></i>
+          </view>
+          <view class="card-item-title">待审核</view>
+        </navigator>
+        <navigator class="card-item" url="/pages/account/order/index?type=buy" hover-class="none">
+          <view class="card-item-icon">
+            <i class="iconfont icon-praise"></i>
+          </view>
+          <view class="card-item-title">已认购</view>
+        </navigator>
+        <navigator class="card-item" url="/pages/account/order/index?type=complete" hover-class="none">
+          <view class="card-item-icon">
+            <i class="iconfont icon-complete"></i>
+          </view>
+          <view class="card-item-title">已完成</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class="index-navigator">
+    <view class="index-navigator-container">
+      <view class="nav-cell">
+        <view class="nav-cell-icon">
+          <i class="iconfont icon-car"></i>
+        </view>
+        <view class="nav-cell-bd">我的车位</view>
+        <view class="nav-cell-ft">
+          <van-icon name="arrow" />
+        </view>
+      </view>
+      <view class="nav-cell">
+        <view class="nav-cell-icon">
+          <van-icon name="star" color="#F7BD04"/>
+        </view>
+        <view class="nav-cell-bd">我的收藏</view>
+        <view class="nav-cell-ft">
+          <van-icon name="arrow" />
+        </view>
+      </view>
+      <view class="nav-cell">
+        <view class="nav-cell-icon">
+          <van-icon name="setting" color="#9975FE"/>
+        </view>
+        <view class="nav-cell-bd">账号设置</view>
+        <view class="nav-cell-ft">
+          <van-icon name="arrow" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

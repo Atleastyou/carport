@@ -1,0 +1,58 @@
+<view class="order">
+  <view class="order-search">
+    <van-search
+      value="{{ value }}"
+      shape="round"
+      background="#ffffff"
+      placeholder="请输入搜索关键词"
+    />
+  </view>
+  <view class="order-navbar">
+    <scorll-view scroll-x>
+      <view class="navbars">
+        <view wx:for="{{navbars}}" wx:key="index" class="navbar-item {{orderType === item.value && 'active'}}" bindtap="changeNavbar" data-item="{{item}}">{{item.label}}</view>
+      </view>
+    </scorll-view>
+  </view>
+  <scroll-view scroll-y style="height: calc(100vh - 102px);">
+    <!-- <view class="order-body">
+      <view class="order-item">
+        <view class="order-item-hd">
+          <view class="order-item-time">2021-01-01</view>
+          <view class="order-item-status red">待付款</view>
+        </view>
+        <view class="order-item-bd">
+          <view class="order-item-img" style="background-image: url(../../../images/banner1.jpeg);"></view>
+          <view class="order-item-house">
+            <view class="house-name">万科云城●理想城一期</view>
+            <view class="house-address">A1层A区：A003号车位</view>
+            <view class="house-price">
+              <view class="house-price-label">原价：</view>
+              <view class="house-price-value">¥188888.00</view>
+            </view>
+            <view class="house-price">
+              <view class="house-price-label">原价：</view>
+              <view class="house-price-value activity-price">¥188888.00</view>
+            </view>
+          </view>
+        </view>
+        <view class="order-item-ft">
+          <view class="order-item-pay">
+            <view class="pay-label">应付总额：</view>
+            <view class="pay-value">¥188888.00</view>
+          </view>
+          <view class="order-item-handle">
+            <view class="order-item-btn">立即付款</view>
+          </view>
+        </view>
+      </view>
+    </view> -->
+    <view class="order-empty">
+      <view class="order-empty-icon">
+        <i class="iconfont icon-car"></i>
+      </view>
+      <view class="order-empty-info">您还没有相关订单</view>
+      <navigator class="order-empty-btn" url="/pages/carport/index/index" open-type="switchTab" hover-class="none">去选车位</navigator>
+    </view>
+  </scroll-view>
+</view>

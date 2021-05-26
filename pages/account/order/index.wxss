@@ -1,0 +1,173 @@
+.order {
+  width: 100%;
+  height: 100vh;
+  background: rgba(187, 187, 187, 0.23);
+}
+.order-navbar {
+  padding: 20rpx 0;
+  background: #fff;
+}
+.navbars {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.navbar-item {
+  padding: 5rpx 0;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #101010;
+}
+.navbar-item.active {
+  position: relative;
+  color: #D93025;
+}
+.navbar-item.active:after {
+  position: absolute;
+  content: '';
+  left: 50%;
+  bottom: -6rpx;
+  transform: translateX(-50%);
+  width: 32rpx;
+  height: 6rpx;
+  background: #D93025;
+}
+.order-body {
+  padding: 30rpx 20rpx 10rpx;
+}
+.order-item {
+  width: 100%;
+  margin-bottom: 20rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  background: #fff;
+}
+.order-item-hd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10rpx 20rpx;
+  border-bottom: 1px solid #efefef;
+}
+.order-item-time {
+  font-size: 26rpx;
+  color: #444;
+}
+.order-item-status {
+  font-size: 26rpx;
+  color: #474747;
+}
+.order-item-status.red {
+  color: #D93025;
+}
+.order-item-bd {
+  padding: 20rpx 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #efefef;
+}
+.order-item-img {
+  width: 154rpx;
+  height: 150rpx;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.order-item-house {
+  margin-left: 20rpx;
+}
+.house-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #141414;
+}
+.house-address {
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: #101010;
+}
+.house-price {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+.house-price-label {
+  color: #BF1A21;
+}
+.house-price-value {
+  color: #E51C23;
+}
+.house-price-value.activity-price {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.order-item-ft {
+  padding: 20rpx 10rpx 0;
+}
+.order-item-pay {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.pay-label {
+  margin-right: 20rpx;
+  font-size: 24rpx;
+  color: #474747;
+}
+.pay-value {
+  font-size: 28rpx;
+  color: #101010;
+}
+.order-item-handle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.order-item-btn {
+  margin-top: 10rpx;
+  padding: 8rpx 24rpx;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  border-radius: 40rpx;
+  border: 1px solid #EC0D0D;
+  color: #EC0D0D;
+}
+.order-empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.order-empty-icon {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background: #FFF0E6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.order-empty-icon .icon-car {
+  color: #FF8452;
+  font-size: 100rpx;
+}
+.order-empty-info {
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: #474747;
+}
+.order-empty-btn {
+  width: 600rpx;
+  height: 82rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 82rpx;
+  background: #EC0D0D;
+  margin-top: 48rpx;
+  color: #fff;
+  font-size: 32rpx;
+}

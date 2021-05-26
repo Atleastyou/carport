@@ -19,7 +19,7 @@
       </van-dropdown-menu>
     </view>
     <scroll-view scroll-y style="height: calc(100vh - 200rpx);" class="index-houses">
-      <view class="house-item">
+      <navigator class="house-item" url="/pages/carportS/index">
         <view class="house-item-img"></view>
         <view class="house-item-bd">
           <view class="house-item-title">万科云城●理想城一期</view>
@@ -32,7 +32,7 @@
             <view class="house-item-num-bd">¥ 12.8—28.8 万</view>
           </view>
         </view>
-      </view>
+      </navigator>
     </scroll-view>
   </view>
 </view>

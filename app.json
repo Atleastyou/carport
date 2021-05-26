@@ -7,7 +7,9 @@
     "pages/search/index",
     "pages/address/index",
     "pages/carportSelect/index",
-    "pages/carportS/index"
+    "pages/carportS/index",
+    "pages/account/order/index",
+    "pages/account/orderDetail/index"
   ],
   "tabBar": {
     "backgroundColor": "#fff",
