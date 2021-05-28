@@ -5,9 +5,9 @@ const baseUrl = {
   // 开发版
   develop: "http://t.hkb.chaosaas.cn/api",
   // 体验版
-  trial: "https://hkb.chaosaas.cn/api",
+  trial: "https://parking-mini.hyp-arch.com/api",
   // 正式版
-  release: "https://hkb.chaosaas.cn/api"
+  release: "https://parking-mini.hyp-arch.com/api"
 }[envVersion || 'release']
 
 // 设置请求拦截器

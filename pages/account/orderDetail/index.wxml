@@ -1,5 +1,120 @@
 <view class="detail">
   <view class="detail-header">
-    <view class="detail-header-bd"></view>
+    <view class="detail-header-bd">
+      <view class="status-icon">
+        <!-- <i class="iconfont icon-dollar"></i> -->
+        <!-- <i class="iconfont icon-audit"></i> -->
+        <!-- <i class="iconfont icon-complete"></i> -->
+        <i class="iconfont icon-approve"></i>
+      </view>
+      <!-- <view class="order-status-bd">
+        <view class="status-title">待付款</view>
+        <view class="status-info">剩24小时00分自动关闭</view>
+      </view> -->
+     <!-- <view class="order-status-bd">
+        <view class="status-title">待审核</view>
+        <view class="status-info">认购确认中，请耐心等候~~~~</view>
+      </view> -->
+      <!-- <view class="order-status-bd">
+        <view class="status-title">已完成</view>
+        <view class="status-info">恭喜您，交易成功啦~~~</view>
+      </view> -->
+      <view class="order-status-bd">
+        <view class="status-title">订单关闭</view>
+        <view class="status-info">交易关闭啦，再看看其他车位吧~~~</view>
+      </view>
+    </view>
+  </view>
+  <view class="detail-body">
+    <view class="detail-user">
+      <view class="detail-user-icon iconfont icon-approve"></view>
+      <view class="detail-user-bd">
+        <view class="detail-user-item">
+          <view class="detail-user-label">购买人：</view>
+          <view class="detail-user-value">张xxx</view>
+        </view>
+        <view class="detail-user-item">
+          <view class="detail-user-label">手机号：</view>
+          <view class="detail-user-value">15115698562</view>
+        </view>
+      </view>
+    </view>
+    <view class="detail-section">
+      <view class="detail-section-title">车位概况</view>
+      <view class="detail-section-floor">
+        <view class="detail-floor-img"></view>
+        <view class="detail-floor-bd">
+          <view class="detail-floor-name">万科云城●理想城一期</view>
+          <view class="detail-floor-position">A1层A区：A003号车位</view>
+          <view class="detail-floor-item">
+            <view class="detail-floor-label">原价：</view>
+            <view class="detail-floor-value">¥188888.00</view>
+          </view>
+          <view class="detail-floor-item">
+            <view class="detail-floor-label">活动价：</view>
+            <view class="detail-floor-value .activity">¥188888.00</view>
+          </view>
+        </view>
+      </view>
+      <view class="detail-info">
+        <view class="info-col">
+          <view class="info-item">
+            <view class="info-item-label">车位类型：</view>
+            <view class="info-item-value">微型</view>
+          </view>
+          <view class="info-item">
+            <view class="info-item-label">车位长：</view>
+            <view class="info-item-value">微型</view>
+          </view>
+          <view class="info-item">
+            <view class="info-item-label">使用面积：</view>
+            <view class="info-item-value">微型</view>
+          </view>
+        </view>
+        <view class="info-col">
+          <view class="info-item">
+            <view class="info-item-label">车位性质：</view>
+            <view class="info-item-value">微型</view>
+          </view>
+          <view class="info-item">
+            <view class="info-item-label">车位宽：</view>
+            <view class="info-item-value">微型</view>
+          </view>
+          <view class="info-item">
+            <view class="info-item-label">产权年限：</view>
+            <view class="info-item-value">微型</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="detail-section">
+      <view class="detail-section-title">订单信息</view>
+      <view class="detail-section-bd">
+        <view class="info-item">
+          <view class="info-item-label">订单编号：</view>
+          <view class="info-item-value">微型</view>
+        </view>
+        <view class="info-item">
+          <view class="info-item-label">订单状态：</view>
+          <view class="info-item-value">微型</view>
+        </view>
+        <view class="info-item">
+          <view class="info-item-label">创建时间：</view>
+          <view class="info-item-value">微型</view>
+        </view>
+        <view class="info-item">
+          <view class="info-item-label">付款时间：</view>
+          <view class="info-item-value">微型</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="detail-footer">
+    <view class="detail-total">
+      <view class="detail-total-label">总价：</view>
+      <view class="detail-total-value">¥188888.00</view>
+    </view>
+    <!-- <view class="detail-btn">支 付</view> -->
+    <view class="detail-btn">删 除</view>
   </view>
 </view>

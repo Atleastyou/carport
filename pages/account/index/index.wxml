@@ -45,7 +45,7 @@
   </view>
   <view class="index-navigator">
     <view class="index-navigator-container">
-      <view class="nav-cell">
+      <navigator class="nav-cell" url="/pages/account/myCar/index" hover-class="none">
         <view class="nav-cell-icon">
           <i class="iconfont icon-car"></i>
         </view>
@@ -53,7 +53,7 @@
         <view class="nav-cell-ft">
           <van-icon name="arrow" />
         </view>
-      </view>
+      </navigator>
       <view class="nav-cell">
         <view class="nav-cell-icon">
           <van-icon name="star" color="#F7BD04"/>
@@ -63,7 +63,7 @@
           <van-icon name="arrow" />
         </view>
       </view>
-      <view class="nav-cell">
+      <navigator class="nav-cell" url="/pages/account/manage/index" hover-class="none">
         <view class="nav-cell-icon">
           <van-icon name="setting" color="#9975FE"/>
         </view>
@@ -71,7 +71,7 @@
         <view class="nav-cell-ft">
           <van-icon name="arrow" />
         </view>
-      </view>
+      </navigator>
     </view>
   </view>
 </view>

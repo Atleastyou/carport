@@ -1,0 +1,25 @@
+<view class="form">
+  <view class="form-body">
+    <view class="form-item form-item-pic">
+      <view class="form-item-head"></view>
+      <view class="form-item-ft">
+        <text>上传</text>
+        <van-icon name="arrow" color="#8D8C8C"/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">实名认证</view>
+      <view class="form-item-bd text-right">未认证</view>
+      <view class="form-item-ft">
+        <van-icon name="arrow" color="#8D8C8C"/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">手机认证</view>
+      <view class="form-item-bd text-right">未认证</view>
+      <view class="form-item-ft">
+        <van-icon name="arrow" color="#8D8C8C"/>
+      </view>
+    </view>
+  </view>
+</view>
