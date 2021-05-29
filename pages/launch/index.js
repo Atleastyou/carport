@@ -1,20 +1,21 @@
-import {} from '../../api/index'
-import { queryToObject } from '../../utils/util'
+import { wxLogin } from '../../api/index'
 const app = getApp()
 Page({
-  data: {},
+  data: {
+    show: false
+  },
   async wxLogin(redirect) {
     try {
-      let login_uid = 0
-      if (redirect && decodeURIComponent(redirect).indexOf('?') >= 0) {
-        login_uid = queryToObject(decodeURIComponent(redirect).split('?')[1])['login_uid'] || 0
-      }
-      console.log(login_uid)
       const { code } = await wx.$pro.login()
-      // await wxLogin({ js_code: code, login_uid })
+      const { data } = await wxLogin({ code: code })
+      if (!data.nickname) {
+        this.setData({ show: true })
+      }
     } catch ({ msg }) {
       wx.showToast({ title: msg, icon: 'none' })
     }
   },
-  async onLoad() {}
+  async onLoad() {
+    this.wxLogin()
+  }
 })

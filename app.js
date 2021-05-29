@@ -1,5 +1,5 @@
 import { promisifyAll } from 'miniprogram-api-promise'
-import { getConfig, offline } from './api/index'
+import { wxLogin } from './api/index'
 import nav from './router/index'
 const pro = {}
 promisifyAll(wx, pro)
@@ -24,18 +24,6 @@ App({
     this.globalData.systemInfo.pixelRatio = pixelRatio
     this.globalData.systemInfo.statusBarHeight = statusBarHeight
   },
-  async getConfig() {
-    try {
-      const { data } = await getConfig()
-      this.globalData.config = data
-      if (data.checking) {
-        const { platform } = wx.getSystemInfoSync()
-        this.globalData.platform = platform
-      }
-    } catch (err) {
-      wx.showToast({ title: err.msg, icon: 'none' })
-    }
-  },
   getUserInfo() {
     wx.getSetting({
       success(res) {
@@ -49,12 +37,19 @@ App({
       }
     })
   },
+  async login() {
+    try {
+      const { code } = await wx.$pro.login()
+      const { data } = await wxLogin({code})
+    } catch (err) {
+      wx.showToast({ title: err.msg, icon: 'none' })
+    }
+  },
   onLaunch() {
-    this.getUserInfo()
+    // this.login()
+    // this.getUserInfo()
   },
-  onHide () {
-    offline()
-  },
+  onHide () {},
   onUnhandledRejection ({reason}) {
     if (reason.errMsg.indexOf('system deny') !== -1) wx.showToast({ title: '操作失败，请在设置中打开微信权限', icon: 'none' })
   }

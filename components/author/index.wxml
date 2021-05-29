@@ -1,0 +1,14 @@
+<view class="modal" wx:if="{{show}}">
+  <view class="modal-contaienr">
+    <view class="modal-body">
+      <view class="title">登录并授权</view>
+      <view class="subtitle">
+        <view>申请获取以下权限</view>
+        <view>获得您的公开信息（昵称、头像）</view>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button class="modal-btn" open-type="getUserInfo" bindgetuserinfo="getuserinfo">好的</button>
+    </view>
+  </view>
+</view>
