@@ -43,8 +43,8 @@
           "scene": null
         },
         {
-          "name": "pages/carportS/index",
-          "pathName": "pages/carportS/index",
+          "name": "pages/carportSelect/index",
+          "pathName": "pages/carportSelect/index",
           "query": "",
           "scene": null
         },
@@ -63,6 +63,18 @@
         {
           "name": "订单详情",
           "pathName": "pages/account/orderDetail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的车位",
+          "pathName": "pages/account/myCar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "账号管理",
+          "pathName": "pages/account/manage/index",
           "query": "",
           "scene": null
         }

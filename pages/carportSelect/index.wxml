@@ -1,20 +1,18 @@
-<!-- <view class="intro">
-  <view class="intro-container"
+<view class="detail">
+  <view
+    class="detail-container"
+    style="width: {{imageInfo.width}}px;height:{{imageInfo.height}}px;transform: matrix({{matrix.a}}, {{matrix.b}}, {{matrix.c}}, {{matrix.d}}, {{matrix.e}}, {{matrix.f}});transform-origin: {{transformOrigin.x}}px {{transformOrigin.y}}px"
     bindtouchstart="start"
     bindtouchmove="moving"
     bindtouchcancel="end"
     bindtouchend="end"
-    style="height: {{imageInfo.height}}px;width: {{imageInfo.width}}px;transform: translate3d({{translateX}}px, {{translateY}}px, 0) scale({{scale}}); transform-origin: {{originX}} {{originY}};"
   >
-    <image
-      class="intro-image"
-      src="../../images/demo_picture.jpg"
-    >
+    <image class="detail-image" src="../../images/demo_picture.jpg">
       <view
         class="tag-item"
         wx:for="{{tags}}"
         wx:key="index"
-        style="width: {{item.width}}px;height: {{item.height}}px;background-color: {{item.color}};top: {{item.pageY - scale * 10}}px;left: {{item.pageX - scale * 10}}px;transform: rotate({{item.rotate}}deg);"
+        style="width: {{item.width}}px;height: {{item.height}}px;background-color: {{item.color}};top: {{item.pageY - 10}}px;left: {{item.pageX - 10}}px;transform: rotate({{item.rotate}}deg);"
         bindtap="clickTag"
         data-item="{{item}}"
       >
@@ -22,41 +20,4 @@
       </view>
     </image>
   </view>
-  <view class="intro-btns">
-    <view class="intro-btn" bindtap="rotate">放大</view>
-    <!-- <view class="intro-btn" bindtap="narrow">缩小</view>
-  </view>
-</view> -->
-<view class="intro">
-  <movable-area class="intro-movable-area" scale-area>
-    <movable-view
-      class="intro-movable-view"
-      bindchange="changeMovable"
-      inertia="{{true}}"
-      bindscale="scaleMovable"
-      direction="all"
-      animation="{{false}}"
-    >
-      <image
-        class="intro-image"
-        bindtouchstart="start"
-        bindtouchmove="moving"
-        bindtouchcancel="end"
-        bindtouchend="end"
-        src="../../images/demo_picture.jpg"
-        style="height: {{scaleSize.x}}px;height: {{scaleSize.y}}px;transform: translateX({{postTranslate.x}}px) translateY({{postTranslate.y}}px);"
-      >
-        <view
-          class="tag-item"
-          wx:for="{{tags}}"
-          wx:key="index"
-          style="width: {{item.width}}px;height: {{item.height}}px;background-color: {{item.color}};top: {{item.pageY - scale * 10}}px;left: {{item.pageX - scale * 10}}px;transform: rotate({{item.rotate}}deg);"
-          bindtap="clickTag"
-          data-item="{{item}}"
-        >
-          <text>{{item.text}}</text>
-        </view>
-      </image>
-    </movable-view>
-  </movable-area>
 </view>

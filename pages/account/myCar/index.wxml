@@ -1,0 +1,15 @@
+<view class="index">
+  <view class="index-item" wx:for="{{10}}" wx:key="index">
+    <view class="item-header">
+      <view class="iconfont icon-car"></view>
+      <view class="item-header-name">万科云城●理想城一期</view>
+    </view>
+    <view class="item-bd">
+      <view class="item-bd-address">A1层A区：A003号车位</view>
+      <view class="item-bd-total">
+        <view class="item-total-label">总价：</view>
+        <view class="item-total-value">188888.00</view>
+      </view>
+    </view>
+  </view>
+</view>

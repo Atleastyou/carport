@@ -1,0 +1,50 @@
+.index {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 40rpx 16rpx 20rpx;
+}
+.index-item {
+  width: 100%;
+  padding: 30rpx 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 0px 4rpx 12rpx 0px rgba(0, 0, 0, 0.4);
+}
+.item-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 10rpx;
+}
+.item-header .iconfont {
+  color: #9975FE;
+  font-size: 48rpx;
+  margin-right: 20rpx;
+}
+.item-header-name {
+  font-size: 32rpx;
+  color: #141414;
+  font-weight: bold;
+}
+.item-bd {
+  padding: 0 40rpx;
+  margin-top: 10rpx;
+}
+.item-bd-address {
+  font-size: 28rpx;
+  color: #101010;
+}
+.item-bd-total {
+  display: flex;
+  align-items: center;
+  margin-top: 40rpx;
+}
+.item-total-label {
+  font-size: 24rpx;
+  color: #BF1A21;
+}
+.item-total-value {
+  font-size: 36rpx;
+  color: #E51C23;
+}
