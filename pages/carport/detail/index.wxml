@@ -1,0 +1,15 @@
+<view class="detail">
+  <view class="detail-swiper">
+    <swiper class="detail-swiper-container" autoplay easing-function="easeInOutCubic" bindchange="changeCurrent">
+      <block wx:for="{{banners}}" wx:key="index">
+        <swiper-item>
+          <view class="swiper-banner" style="background-image: url({{item}});"></view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="indicator">{{indicatorIndex}}/{{banners.length}}</view>
+  </view>
+  <view class="detail-container">
+    <view class="detail-container-header"></view>
+  </view>
+</view>

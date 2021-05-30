@@ -26,8 +26,7 @@ const fetch = (params = {}) => {
   return wx.$pro.request({ ...params })
     .then(({ data }) => {
       // 保存cookie
-      console.log(data)
-      if (data.data.token) wx.setStorageSync('cookie', data.data.token)
+      if (data && data.data && data.data.token) wx.setStorageSync('cookie', data.data.token)
       // ... 各种异常情况的逻辑处理
       if (data.code === 0) return Promise.resolve(data)
       return Promise.reject(data)

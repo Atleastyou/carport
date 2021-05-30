@@ -9,18 +9,16 @@ Component({
   methods: {
     getuserinfo({detail}) {
       if (detail.errMsg === 'getUserInfo:ok') this.eidtUserInfo(detail)
-      else this.$emit('fail')
+      else this.triggerEvent('fail')
     },
     async eidtUserInfo(detail) {
       try {
-        console.log(detail)
-        await updateUserInfo({ ...detail.userInfo })
-        // wx.showLoading()
-        // const { data } = await editUser({iv, encrypted_data: encryptedData})
-        // this.$parent.$parent.globalData.userInfo = data.userInfo
-        // this.$emit('success')
-      } catch ({ msg }) {
-        wx.showToast({title: msg, icon: 'none'})
+        let { cloudID, encryptedData, errMsg, iv, rawData, signature } = detail
+        await updateUserInfo({ cloudID, encryptedData, errMsg, iv, rawData, signature })
+        this.triggerEvent('success')
+      } catch (err) {
+        console.log(err)
+        wx.showToast({title: err.msg, icon: 'none'})
       } finally {
         wx.hideLoading()
       }

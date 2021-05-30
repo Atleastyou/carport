@@ -6,7 +6,7 @@
         <i class="iconfont icon-triangle"></i>
       </view>
       <view class="search-input" url="/pages/search/index" hover-class="none">
-        <input type="text" placeholder="搜索楼盘"/>
+        <input type="text" placeholder="搜索楼盘" value="{{ keyword }}" bindinput="changeInput"/>
       </view>
     </view>
   </view>
@@ -28,10 +28,22 @@
       </view>
     </view>
     <view class="content-body">
-      <view class="item-body" wx:for="{{10}}" wx:key="index">
+      <view class="item-body" wx:for="{{list}}" wx:key="index" wx:if="{{list.length}}">
         <view class="item-container">
-          <view class="item-img" style="background-image: url(../../images/demo_picture.jpg);"></view>
+          <view class="item-img" style="background-image: url(https://parking-mini.hyp-arch.com/api/{{item.imgUrl}});"></view>
+          <view class="item-name">
+            <view class="item-name-bd">{{item.estateName}}</view>
+            <view class="item-name-tag">促销中</view>
+          </view>
+          <view class="item-num">在售车位：{{item.saleParkingNum}}</view>
+          <view class="item-price">¥{{item.salePriceRange}}</view>
         </view>
+      </view>
+      <view class="item-empty" wx:if="{{!list.length}}">
+        <view class="item-empty-icon">
+          <i class="iconfont icon-car"></i>
+        </view>
+        <view class="item-empty-info">暂无热门楼盘</view>
       </view>
     </view>
   </view>

@@ -77,6 +77,12 @@
           "pathName": "pages/account/manage/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "楼盘信息",
+          "pathName": "pages/carport/detail/index",
+          "query": "id=1",
+          "scene": null
         }
       ]
     }

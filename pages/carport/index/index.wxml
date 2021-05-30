@@ -11,25 +11,25 @@
     </view>
   </view>
   <view class="index-container">
-    <view class="index-dropdown">
+    <!-- <view class="index-dropdown">
       <van-dropdown-menu>
         <van-dropdown-item title="{{activeType}}">
           <van-cell wx:for="{{types}}" wx:item="item" wx:key="index" title="{{item.title}}" bindtap="changeCate" data-index="{{index}}"></van-cell>
         </van-dropdown-item>
       </van-dropdown-menu>
-    </view>
-    <scroll-view scroll-y style="height: calc(100vh - 200rpx);" class="index-houses">
-      <navigator class="house-item" url="/pages/carportS/index">
-        <view class="house-item-img"></view>
+    </view> -->
+    <scroll-view scroll-y style="height: calc(100vh - 100rpx);" class="index-houses">
+      <navigator class="house-item" url="/pages/carport/detail/index?id={{item.projectId}}" wx:for="{{list}}" wx:key="index">
+        <view class="house-item-img" style="background-image: url(https://parking-mini.hyp-arch.com/api/{{item.imgUrl}});"></view>
         <view class="house-item-bd">
-          <view class="house-item-title">万科云城●理想城一期</view>
+          <view class="house-item-title">{{item.estateName}}</view>
           <view class="house-item-num">
             <view class="house-item-num-label">在售车位</view>
-            <view class="house-item-num-bd">133个</view>
+            <view class="house-item-num-bd">{{item.saleParkingNum}}个</view>
           </view>
           <view class="house-item-num">
             <view class="house-item-num-label">购买价格</view>
-            <view class="house-item-num-bd">¥ 12.8—28.8 万</view>
+            <view class="house-item-num-bd">¥ {{item.salePriceRange}} 万</view>
           </view>
         </view>
       </navigator>

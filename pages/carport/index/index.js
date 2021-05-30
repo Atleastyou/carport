@@ -1,5 +1,4 @@
-import {} from '../../../api/index'
-import { queryToObject } from '../../../utils/util'
+import { getEstateList } from '../../../api/index'
 const app = getApp()
 Page({
   data: {
@@ -12,20 +11,41 @@ Page({
         title: '3-500'
       }
     ],
-    activeType: '全部'
+    activeType: '全部',
+    list: []
   },
-  async wxLogin(redirect) {
+  async getList() {
     try {
-      let login_uid = 0
-      if (redirect && decodeURIComponent(redirect).indexOf('?') >= 0) {
-        login_uid = queryToObject(decodeURIComponent(redirect).split('?')[1])['login_uid'] || 0
-      }
-      console.log(login_uid)
-      const { code } = await wx.$pro.login()
-      // await wxLogin({ js_code: code, login_uid })
-    } catch ({ msg }) {
-      wx.showToast({ title: msg, icon: 'none' })
+      const { data } = await getEstateList({ current: this.data.current, size: this.data.size, key: this.data.keyword })
+      this.setData({
+        list: data.records,
+        current: 2
+      })
+    } catch (err) {
+      console.log(err)
     }
   },
-  async onLoad() {}
+  async loadMore() {
+    try {
+      if (this.loading || this.alloaded) return
+      this.loading = true
+      const { data } = await getEstateList({ current: this.data.current, size: this.data.size, key: this.data.keyword })
+      this.alloaded = !data.records.length
+      if (data.records.length) {
+        let list = [...this.data.records]
+        list.push(...data.records)
+        this.setData({
+          page: this.data.page + 1,
+          list: list
+        })
+      }
+      this.loading = false
+    } catch (err) {
+      this.loading = false
+      wx.showToast({ title: err.msg, icon: 'none' })
+    }
+  },
+  async onLoad() {
+    this.getList()
+  }
 })

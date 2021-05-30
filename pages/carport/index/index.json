@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "楼盘列表"
+  "navigationBarTitleText": "楼盘列表",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#EC0D0D"
 }

@@ -4,6 +4,7 @@
     "pages/index/index",
     "pages/account/index/index",
     "pages/carport/index/index",
+    "pages/carport/detail/index",
     "pages/search/index",
     "pages/address/index",
     "pages/carportSelect/index",
