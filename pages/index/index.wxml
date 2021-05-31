@@ -36,7 +36,7 @@
     <view class="content-body" wx:if="{{list.length}}">
       <view class="item-body" wx:for="{{list}}" wx:key="index">
         <view class="item-container">
-          <view class="item-img" style="background-image: url({{item.imgUrl}});"></view>
+          <view class="item-img" style="background-image: url({{filter.filterUrl(item.imgUrl)}});"></view>
           <view class="item-name">
             <view class="item-name-bd">{{item.estateName}}</view>
             <view class="item-name-tag">促销中</view>
