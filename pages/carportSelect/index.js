@@ -66,22 +66,22 @@ Page({
       }
     ]
   },
-  getImage() {
-    let that = this
-    wx.getImageInfo({
-      src: '../../images/demo_picture.jpg',
-      success: function (res) {
-        const { width, height } = res
-        that.setData({
-          'imageInfo.width': width,
-          'imageInfo.height': height,
-          'imageInfo.top': '-480',
-          'imageInfo.left': '-55'
-        })
-        // that.createContent()
-      }
-    })
-  },
+  // getImage() {
+  //   let that = this
+  //   wx.getImageInfo({
+  //     src: '../../images/demo_picture.jpg',
+  //     success: function (res) {
+  //       const { width, height } = res
+  //       that.setData({
+  //         'imageInfo.width': width,
+  //         'imageInfo.height': height,
+  //         'imageInfo.top': '-480',
+  //         'imageInfo.left': '-55'
+  //       })
+  //       // that.createContent()
+  //     }
+  //   })
+  // },
   recordPreTouchPosition(touch) {
     let preTouchPosition = {
       x: touch.clientX,
@@ -136,7 +136,7 @@ Page({
       let translated = { left: this.data.matrix.e, top: this.data.matrix.f }
       let translateX = oneTouch.clientX - this.data.preTouchPosition.x + translated.left
       let translateY = oneTouch.clientY - this.data.preTouchPosition.y + translated.top
-      // if (translateX <= 0) translateX = 0
+      // if (translateX >= 0) translateX = 0
       // if (translateY >= this.data.imageInfo.width)  translateY = this.data.imageInfo.width
       let matrix = {
         a: this.data.scaleRatio,
@@ -198,7 +198,14 @@ Page({
       this.recordPreTouchPosition(touches['0'])
     }
   },
-  onLoad() {
-    this.getImage()
-  },
+  imageLoading({ detail }) {
+    // this.getImage()
+    this.setData({
+      'imageInfo.width': detail.width * 0.5,
+      'imageInfo.height': detail.height * 0.5
+    })
+  }
+  // onLoad() {
+  //   this.getImage()
+  // },
 })

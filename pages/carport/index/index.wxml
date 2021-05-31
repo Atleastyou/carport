@@ -1,12 +1,18 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
 <view class="index">
   <view class="index-header">
     <view class="index-header-search">
-      <view class="search-address" bindtap="selectAddress">
-        <text>包头</text>
-        <i class="iconfont icon-triangle"></i>
+      <view class="search-address">
+        <van-dropdown-menu>
+          <van-dropdown-item id="dropdown" title="{{ cityValue }}">
+            <van-cell wx:for="{{citys}}" wx:item="item" wx:key="index" title="{{item.name}}" active-color="#FEC93D" bindtap="onChangeCity" data-index="{{index}}">
+              <van-icon name="success" color="#ee0a24" wx:if="{{item.isSelect}}"/>
+            </van-cell>
+          </van-dropdown-item>
+        </van-dropdown-menu>
       </view>
       <view class="search-input" url="/pages/search/index" hover-class="none">
-        <input type="text" placeholder="搜索楼盘"/>
+        <input type="text" placeholder="搜索楼盘" value="{{ keyword }}" bindinput="changeInput"/>
       </view>
     </view>
   </view>
@@ -18,9 +24,9 @@
         </van-dropdown-item>
       </van-dropdown-menu>
     </view> -->
-    <scroll-view scroll-y style="height: calc(100vh - 100rpx);" class="index-houses">
-      <navigator class="house-item" url="/pages/carport/detail/index?id={{item.projectId}}" wx:for="{{list}}" wx:key="index">
-        <view class="house-item-img" style="background-image: url(https://parking-mini.hyp-arch.com/api/{{item.imgUrl}});"></view>
+    <scroll-view scroll-y style="height: calc(100vh - 100rpx);" wx:if="{{list.length}}" class="index-houses">
+      <navigator class="house-item" url="/pages/carport/detail/index?id={{item.realEstateInfoId}}" wx:for="{{list}}" wx:key="index">
+        <view class="house-item-img" style="background-image: url({{filter.filterUrl(item.imgUrl)}});"></view>
         <view class="house-item-bd">
           <view class="house-item-title">{{item.estateName}}</view>
           <view class="house-item-num">
@@ -34,5 +40,11 @@
         </view>
       </navigator>
     </scroll-view>
+    <view class="item-empty" wx:else>
+      <view class="item-empty-icon">
+        <i class="iconfont icon-car"></i>
+      </view>
+      <view class="item-empty-info">暂无楼盘</view>
+    </view>
   </view>
 </view>

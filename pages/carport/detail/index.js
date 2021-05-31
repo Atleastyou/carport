@@ -1,20 +1,25 @@
-import  { getDetail } from '../../../api/index.js'
+import  { getDetail, getEstateParking } from '../../../api/index.js'
 Page({
   data: {
     detailId: '',
     indicatorIndex: 1,
-    banners: [
-      '../../../images/banner1.jpeg',
-      '../../../images/banner2.jpeg',
-      '../../../images/banner3.jpeg'
-    ],
+    detail: {}
   },
   async getDetail() {
     try {
       const { data } = await getDetail({id: this.data.detailId})
-      console.log(data)
+      this.setData({ detail: data })
+      this.getParking()
     } catch (err) {
-      console.log(err)
+      wx.showToast({ title: err.msg, icon: 'none' })
+    }
+  },
+  async getParking() {
+    try {
+      const { data } = await getEstateParking({id: this.data.detailId})
+      this.setData({ detail: { ...this.data.detail, ...data } })
+    } catch (err) {
+      wx.showToast({ title: err.msg, icon: 'none' })
     }
   },
   changeCurrent({detail}) {

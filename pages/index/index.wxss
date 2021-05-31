@@ -23,11 +23,23 @@
 .search-address {
   padding-right: 20rpx;
   margin-right: 20rpx;
-  border-right: 1px solid #efefef;
   font-size: 24rpx;
   color: #333;
   display: flex;
   align-items: center;
+}
+.search-address .van-dropdown-menu {
+  height: 60rpx !important;
+  box-shadow: none !important;
+  font-size: 24rpx !important;
+  color: #333 !important;
+}
+.search-address .van-dropdown-item--down {
+  top: 53.5px !important;
+}
+.city-item {
+  text-align: left;
+  color: #333;
 }
 .icon-triangle {
   margin-left: 10rpx;

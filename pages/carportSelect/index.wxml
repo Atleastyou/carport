@@ -1,3 +1,4 @@
+<wxs module="filter" src="../../utils/filter/filter.wxs"></wxs>
 <view class="detail">
   <view
     class="detail-container"
@@ -7,7 +8,7 @@
     bindtouchcancel="end"
     bindtouchend="end"
   >
-    <image class="detail-image" src="../../images/demo_picture.jpg">
+    <image class="detail-image" src="{{filter.filterUrl('/parking/mini/file/test/floor/test01.svg')}}" bindload="imageLoading">
       <view
         class="tag-item"
         wx:for="{{tags}}"

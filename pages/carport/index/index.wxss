@@ -23,11 +23,23 @@
 .search-address {
   padding-right: 20rpx;
   margin-right: 20rpx;
-  border-right: 1px solid #efefef;
   font-size: 24rpx;
   color: #333;
   display: flex;
   align-items: center;
+}
+.search-address .van-dropdown-menu {
+  height: 60rpx !important;
+  box-shadow: none !important;
+  font-size: 24rpx !important;
+  color: #333 !important;
+}
+.search-address .van-dropdown-item--down {
+  top: 53.5px !important;
+}
+.city-item {
+  text-align: left;
+  color: #333;
 }
 .icon-triangle {
   margin-left: 10rpx;
@@ -88,4 +100,31 @@
 .house-item-num-bd {
   font-size: 24rpx;
   color: #EC0D0D;
+}
+.item-empty {
+  width: 100%;
+  height: 100%;
+  padding-top: 300rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.item-empty-icon {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background: #FFF0E6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-empty-icon .icon-car {
+  color: #FF8452;
+  font-size: 100rpx;
+}
+.item-empty-info {
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: #474747;
 }

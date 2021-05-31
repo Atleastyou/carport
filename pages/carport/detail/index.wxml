@@ -1,15 +1,42 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
 <view class="detail">
   <view class="detail-swiper">
     <swiper class="detail-swiper-container" autoplay easing-function="easeInOutCubic" bindchange="changeCurrent">
-      <block wx:for="{{banners}}" wx:key="index">
+      <block wx:for="{{detail.bannerList}}" wx:key="index">
         <swiper-item>
-          <view class="swiper-banner" style="background-image: url({{item}});"></view>
+          <view class="swiper-banner" style="background-image: url({{filter.filterUrl(item)}});"></view>
         </swiper-item>
       </block>
     </swiper>
-    <view class="indicator">{{indicatorIndex}}/{{banners.length}}</view>
+    <view class="indicator">{{indicatorIndex}}/{{detail.bannerList.length}}</view>
   </view>
   <view class="detail-container">
-    <view class="detail-container-header"></view>
+    <view class="detail-container-header">
+      <view class="detail-header-info">
+        <view class="detail-name">{{detail.estateName}}</view>
+        <view class="detail-header-ft">
+          <van-icon name="star-o" size="40rpx"/>
+          <view class="detail-tag">限时促销</view>
+        </view>
+      </view>
+      <view class="detail-header-nums">
+        <view class="num-item border">
+          <view class="num-item-value">{{detail.onSaleNum}}</view>
+          <view class="num-item-label">在售车位</view>
+        </view>
+        <view class="num-item border">
+          <view class="num-item-value">{{detail.soldNum}}</view>
+          <view class="num-item-label">已售车位</view>
+        </view>
+        <view class="num-item">
+          <view class="num-item-value">{{detail.scheduledNum}}</view>
+          <view class="num-item-label">已订车位</view>
+        </view>
+      </view>
+    </view>
+    <view class="detail-price">
+      <view class="detail-price-label">售价：</view>
+      <view class="detail-price-value">¥ {{detail.salePriceRange}} 万</view>
+    </view>
   </view>
 </view>

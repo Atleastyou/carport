@@ -1,5 +1,5 @@
 const app = getApp()
-import { getEstateList } from '../../api/index.js'
+import { getEstateList, getCity } from '../../api/index.js'
 
 Page({
   data: {
@@ -11,7 +11,10 @@ Page({
     list: [],
     current: 1,
     size: 20,
-    keyword: ''
+    keyword: '',
+    citys: [],
+    cityValue: '深圳',
+    cityId: ''
   },
   selectAddress() {
     wx.navigateTo({ url: '/pages/address/index' })
@@ -20,22 +23,48 @@ Page({
     this.setData({ keyword: value })
     this.getList()
   },
+  onChangeCity({ currentTarget: { dataset: { index } } }) {
+    this.data.citys.forEach((item, itemIndex) => {
+      if (itemIndex === index) {
+        this.setData({
+          cityValue: item.simpleName,
+          cityId: item.id
+        })
+        item.isSelect = true
+      }
+      else item.isSelect = false
+    })
+    this.setData({ citys: this.data.citys })
+    this.getList()
+    this.selectComponent('#dropdown').toggle()
+  },
+  async getCity() {
+    try {
+      const { data } = await getCity()
+      data.forEach(item => {
+        item.isSelect = false
+      })
+      this.setData({ citys: data })
+    } catch (err) {
+      wx.showToast({ title: err.msg, icon: 'none' })
+    }
+  },
   async getList() {
     try {
-      const { data } = await getEstateList({ current: this.data.current, size: this.data.size, key: this.data.keyword })
+      const { data } = await getEstateList({ current: 1, size: this.data.size, key: this.data.keyword, cityId: this.data.cityId })
       this.setData({
         list: data.records,
         current: 2
       })
     } catch (err) {
-      console.log(err)
+      wx.showToast({ title: err.msg, icon: 'none' })
     }
   },
   async loadMore() {
     try {
       if (this.loading || this.alloaded) return
       this.loading = true
-      const { data } = await getEstateList({ current: this.data.current, size: this.data.size, key: this.data.keyword })
+      const { data } = await getEstateList({ current: this.data.current, size: this.data.size, key: this.data.keyword, cityId: this.data.cityId })
       this.alloaded = !data.records.length
       if (data.records.length) {
         let list = [...this.data.records]
@@ -56,5 +85,6 @@ Page({
   },
   onLoad() {
     this.getList()
+    this.getCity()
   },
 })

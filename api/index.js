@@ -27,11 +27,22 @@ const getEstateList = (data) => fetch({
 const getDetail = (data) => fetch({
   url: `/estate/view/${data.id}`,
 })
+// 获取城市列表
+const getCity = (data) => fetch({
+  url: '/region/index/city',
+  data
+})
+// 获取楼盘车位信息
+const getEstateParking = (data) => fetch({
+  url: `/estate/${data.id}/parking/num`,
+})
 
 export {
   wxLogin,
   updateUserInfo,
   getUserInfo,
   getEstateList,
-  getDetail
+  getDetail,
+  getCity,
+  getEstateParking
 }
