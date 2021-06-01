@@ -1,40 +1,41 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
 <view class="index">
   <view class="index-header">
-    <view class="index-header-head" style="background-image: url(../../../images/banner1.jpeg);"></view>
+    <view class="index-header-head" style="background-image: url({{filter.filterUrl(userInfo.avatarUrl)}});"></view>
     <view class="index-header-bd">
-      <view class="user-name">sunshine</view>
-      <view class="user-mobile">146****8006</view>
+      <view class="user-name">{{userInfo.nickname}}</view>
+      <view class="user-mobile">{{userInfo.mobile ? userInfo.mobile : '暂无'}}</view>
     </view>
   </view>
   <view class="index-card">
     <view class="index-card-container">
       <view class="card-title">我的订单</view>
       <view class="card-body">
-        <navigator class="card-item" url="/pages/account/order/index?type=all" hover-class="none">
+        <navigator class="card-item" url="/pages/account/order/index" hover-class="none">
           <view class="card-item-icon">
             <i class="iconfont icon-order"></i>
           </view>
           <view class="card-item-title">全部订单</view>
         </navigator>
-        <navigator class="card-item" url="/pages/account/order/index?type=pay" hover-class="none">
+        <navigator class="card-item" url="/pages/account/order/index?type=0" hover-class="none">
           <view class="card-item-icon">
             <i class="iconfont icon-dollar"></i>
           </view>
           <view class="card-item-title">待支付</view>
         </navigator>
-        <navigator class="card-item" url="/pages/account/order/index?type=audit" hover-class="none">
+        <navigator class="card-item" url="/pages/account/order/index?type=1" hover-class="none">
           <view class="card-item-icon">
             <i class="iconfont icon-audit"></i>
           </view>
-          <view class="card-item-title">待审核</view>
+          <view class="card-item-title">已支付</view>
         </navigator>
-        <navigator class="card-item" url="/pages/account/order/index?type=buy" hover-class="none">
+        <!-- <navigator class="card-item" url="/pages/account/order/index?type=buy" hover-class="none">
           <view class="card-item-icon">
             <i class="iconfont icon-praise"></i>
           </view>
           <view class="card-item-title">已认购</view>
-        </navigator>
-        <navigator class="card-item" url="/pages/account/order/index?type=complete" hover-class="none">
+        </navigator> -->
+        <navigator class="card-item" url="/pages/account/order/index?type=2" hover-class="none">
           <view class="card-item-icon">
             <i class="iconfont icon-complete"></i>
           </view>
@@ -54,7 +55,7 @@
           <van-icon name="arrow" />
         </view>
       </navigator>
-      <view class="nav-cell">
+      <navigator class="nav-cell" url="/pages/account/collection/index" hover-class="none">
         <view class="nav-cell-icon">
           <van-icon name="star" color="#F7BD04"/>
         </view>
@@ -62,7 +63,7 @@
         <view class="nav-cell-ft">
           <van-icon name="arrow" />
         </view>
-      </view>
+      </navigator>
       <navigator class="nav-cell" url="/pages/account/manage/index" hover-class="none">
         <view class="nav-cell-icon">
           <van-icon name="setting" color="#9975FE"/>

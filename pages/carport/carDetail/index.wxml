@@ -1,0 +1,63 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
+<view class="detail">
+  <view class="detail-header">{{detail.estateName}}</view>
+  <view class="detail-container">
+    <view class="detail-body">
+      <view class="detail-body-title">车位概况</view>
+      <view class="car-detail">
+        <view class="car-floor" style="background-image: url({{filter.filterUrl(detail.imgUrl)}});"></view>
+        <view class="car-detail-bd">
+          <view class="car-detail-name">{{detail.estateName}}</view>
+          <view class="car-detail-address">{{detail.floorName ? detail.floorName + '：' : ''}}{{detail.parkingCode}}</view>
+          <view class="car-price">
+            <view class="car-price-label">原价：</view>
+            <view class="car-price-value">¥ {{detail.actualPrice}}</view>
+          </view>
+          <view class="car-price">
+            <view class="car-price-label">活动价：</view>
+            <view class="car-price-value red">¥ {{detail.salePrice}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="car-info">
+        <view class="car-info-col">
+          <view class="car-info-row">
+            <view class="car-row-label">车位类型：</view>
+            <view class="car-row-value">{{detail.parkingTypeName ? detail.parkingTypeName : '暂无'}}</view>
+          </view>
+          <view class="car-info-row">
+            <view class="car-row-label">车位长：</view>
+            <view class="car-row-value">{{detail.width ? detail.width : '暂无'}}</view>
+          </view>
+          <view class="car-info-row">
+            <view class="car-row-label">使用面积：</view>
+            <view class="car-row-value">{{detail.width && detail.height ? detail.width + '*' + detail.height : '暂无'}}</view>
+          </view>
+        </view>
+        <view class="car-info-col">
+          <view class="car-info-row">
+            <view class="car-row-label">车位性质：</view>
+            <view class="car-row-value">暂无</view>
+          </view>
+          <view class="car-info-row">
+            <view class="car-row-label">车位宽：</view>
+            <view class="car-row-value">{{detail.height ? detail.height : '暂无'}}</view>
+          </view>
+          <view class="car-info-row">
+            <view class="car-row-label">产权年限：</view>
+            <view class="car-row-value">{{detail.serviceLife ? detail.serviceLife : '暂无'}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="detail-footer">
+    <view class="footer-icon">
+      <van-icon name="{{detail.favoriteStatus ? 'star' : 'star-o'}}" color="{{detail.favoriteStatus ? '#EC0D0D' : ''}}" size="40rpx" bindtap="collection"/>
+    </view>
+    <view class="detail-mobile" wx:if="{{userInfo.mobile}}">电话咨询</view>
+    <button class="detail-mobile" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:else>电话咨询</button>
+    <view class="detail-pay" wx:if="{{userInfo.mobile}}">我要购买</view>
+    <button class="detail-pay" wx:else>我要购买</button>
+  </view>
+</view>

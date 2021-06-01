@@ -1,8 +1,11 @@
 const app = getApp()
+import { getFloorImage, getFloorCar } from '../../api/index.js'
 
 Page({
   data: {
+    detailId: '',
     imageInfo: {
+      imgUrl: '',
       width: '',
       height: ''
     },
@@ -35,53 +38,8 @@ Page({
       y: 0
     },
     originHaveSet: false,
-    tags: [
-      {
-        color: 'rgb(255, 0, 0)',
-        height: 70,
-        id: '1001',
-        pageX: 627,
-        pageY: 364,
-        text: 'C16↵16.5',
-        width: 77
-      },
-      {
-        color: 'rgb(255, 255, 0)',
-        height: 70,
-        id: '1002',
-        pageX: 709,
-        pageY: 364,
-        text: 'C16↵16.18',
-        width: 77
-      },
-      {
-        color: 'rgb(255, 255, 0)',
-        height: 162,
-        id: '1002',
-        pageX: 57,
-        pageY: 528,
-        text: 'C16↵16.18',
-        width: 62,
-        rotate: 26
-      }
-    ]
+    tags: []
   },
-  // getImage() {
-  //   let that = this
-  //   wx.getImageInfo({
-  //     src: '../../images/demo_picture.jpg',
-  //     success: function (res) {
-  //       const { width, height } = res
-  //       that.setData({
-  //         'imageInfo.width': width,
-  //         'imageInfo.height': height,
-  //         'imageInfo.top': '-480',
-  //         'imageInfo.left': '-55'
-  //       })
-  //       // that.createContent()
-  //     }
-  //   })
-  // },
   recordPreTouchPosition(touch) {
     let preTouchPosition = {
       x: touch.clientX,
@@ -201,11 +159,36 @@ Page({
   imageLoading({ detail }) {
     // this.getImage()
     this.setData({
-      'imageInfo.width': detail.width * 0.5,
-      'imageInfo.height': detail.height * 0.5
+      'imageInfo.width': detail.width,
+      'imageInfo.height': detail.height
     })
-  }
-  // onLoad() {
-  //   this.getImage()
-  // },
+  },
+  clickTag({ currentTarget: { dataset: { item } } }) {
+    wx.$nav.navigateTo('/pages/carport/carDetail/index', { id: item.id })
+  },
+  async getFloorImage() {
+    try {
+      const { data } = await getFloorImage({ id: this.data.detailId })
+      this.setData({
+        'imageInfo.imgUrl': data.imgUrl
+      })
+      this.getFloorCar()
+    } catch (err) {
+      wx.showToast({ title: err.msg, icon: 'none' })
+    }
+  },
+  async getFloorCar() {
+    try {
+      const { data } = await getFloorCar({ id: this.data.detailId })
+      this.setData({
+        tags: data
+      })
+    } catch (err) {
+      wx.showToast({ title: err.msg, icon: 'none' })
+    }
+  },
+  onLoad({ id }) {
+    this.setData({ detailId: id })
+    this.getFloorImage()
+  },
 })

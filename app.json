@@ -5,13 +5,15 @@
     "pages/account/index/index",
     "pages/carport/index/index",
     "pages/carport/detail/index",
+    "pages/carport/carDetail/index",
     "pages/search/index",
     "pages/address/index",
     "pages/carportSelect/index",
     "pages/account/order/index",
     "pages/account/orderDetail/index",
     "pages/account/myCar/index",
-    "pages/account/manage/index"
+    "pages/account/manage/index",
+    "pages/account/collection/index"
   ],
   "tabBar": {
     "backgroundColor": "#fff",
@@ -59,7 +61,8 @@
     "van-cell": "@vant/weapp/cell/index",
     "van-field": "@vant/weapp/field/index",
     "van-swipe-cell": "@vant/weapp/swipe-cell/index",
-    "van-stepper": "@vant/weapp/stepper/index"
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-checkbox": "@vant/weapp/checkbox/index"
   },
   "permission": {
     "scope.userLocation": {

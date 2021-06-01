@@ -39,7 +39,7 @@
         {
           "name": "车位选择",
           "pathName": "pages/carportSelect/index",
-          "query": "",
+          "query": "id=1",
           "scene": null
         },
         {
@@ -57,13 +57,13 @@
         {
           "name": "订单管理",
           "pathName": "pages/account/order/index",
-          "query": "type=all",
+          "query": "",
           "scene": null
         },
         {
           "name": "订单详情",
           "pathName": "pages/account/orderDetail/index",
-          "query": "",
+          "query": "id=3",
           "scene": null
         },
         {
@@ -82,6 +82,18 @@
           "name": "楼盘信息",
           "pathName": "pages/carport/detail/index",
           "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "车位详情",
+          "pathName": "pages/carport/carDetail/index",
+          "query": "id=9",
+          "scene": null
+        },
+        {
+          "name": "我的收藏",
+          "pathName": "pages/account/collection/index",
+          "query": "",
           "scene": null
         }
       ]

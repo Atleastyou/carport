@@ -1,9 +1,11 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
 <view class="order">
   <view class="order-search">
     <van-search
-      value="{{ value }}"
+      value="{{ keyword }}"
       shape="round"
       background="#ffffff"
+      bind:change="onChange"
       placeholder="请输入搜索关键词"
     />
   </view>
@@ -14,40 +16,40 @@
       </view>
     </scorll-view>
   </view>
-  <scroll-view scroll-y style="height: calc(100vh - 102px);">
-    <!-- <view class="order-body">
-      <view class="order-item">
+  <scroll-view scroll-y style="height: calc(100vh - 102px);" bindscrolltolower="loadMore">
+    <view class="order-body" wx:if="{{list.length}}">
+      <navigator class="order-item" wx:for="{{list}}" wx:key="index" url="/pages/account/orderDetail/index?id={{item.miniUserOrderId}}" hover-class="none">
         <view class="order-item-hd">
-          <view class="order-item-time">2021-01-01</view>
-          <view class="order-item-status red">待付款</view>
+          <view class="order-item-time">{{item.createTime}}</view>
+          <view class="order-item-status {{item.orderStatus === 0 ? 'red' : ''}}">{{filter.filterStatus(item.orderStatus)}}</view>
         </view>
         <view class="order-item-bd">
-          <view class="order-item-img" style="background-image: url(../../../images/banner1.jpeg);"></view>
+          <view class="order-item-img" style="background-image: url({{filter.filterUrl(item.imgUrl)}});"></view>
           <view class="order-item-house">
-            <view class="house-name">万科云城●理想城一期</view>
-            <view class="house-address">A1层A区：A003号车位</view>
+            <view class="house-name">{{item.estateName}}</view>
+            <view class="house-address">{{item.floorName ? item.floorName + '：' : ''}}{{item.parkingCode}}</view>
             <view class="house-price">
               <view class="house-price-label">原价：</view>
-              <view class="house-price-value">¥188888.00</view>
+              <view class="house-price-value">¥{{item.actualPrice}}</view>
             </view>
             <view class="house-price">
-              <view class="house-price-label">原价：</view>
-              <view class="house-price-value activity-price">¥188888.00</view>
+              <view class="house-price-label">活动价：</view>
+              <view class="house-price-value activity-price">¥{{item.salePrice}}</view>
             </view>
           </view>
         </view>
         <view class="order-item-ft">
           <view class="order-item-pay">
             <view class="pay-label">应付总额：</view>
-            <view class="pay-value">¥188888.00</view>
+            <view class="pay-value">¥{{item.actualPayPrice}}</view>
           </view>
-          <view class="order-item-handle">
+          <view class="order-item-handle" wx:if="{{item.orderStatus === 0}}">
             <view class="order-item-btn">立即付款</view>
           </view>
         </view>
-      </view>
-    </view> -->
-    <view class="order-empty">
+      </navigator>
+    </view>
+    <view class="order-empty" wx:else>
       <view class="order-empty-icon">
         <i class="iconfont icon-car"></i>
       </view>

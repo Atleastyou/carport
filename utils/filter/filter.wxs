@@ -2,9 +2,28 @@ var filter = {
   filterUrl: function (url) {
     if (url.indexOf('http') >= 0 || url.indexOf('https') >= 0 ) return url
     else return 'https://parking-mini.hyp-arch.com' + url
+  },
+  filterStatus: function (status) {
+    var text = ''
+    switch (status) {
+      case 0:
+        text = '待支付'
+        break
+      case 1:
+        text = '已支付'
+        break
+      case 2:
+        text = '已完成'
+        break
+      case 3:
+        text = '退款'
+        break
+    }
+    return text
   }
 }
 
 module.exports = {
-  filterUrl: filter.filterUrl
+  filterUrl: filter.filterUrl,
+  filterStatus: filter.filterStatus
 }

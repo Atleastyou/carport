@@ -1,0 +1,76 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
+<view class="index">
+  <view class="index-search">
+    <van-search
+      value="{{ keyword }}"
+      shape="round"
+      background="#ffffff"
+      bind:change="onChange"
+      placeholder="楼盘名称/车位编号"
+    />
+  </view>
+  <view class="index-tabs">
+    <view class="tabs-bd">
+      <view class="tab-item {{ type == 1 ? 'active' : ''}}" bindtap="changeTab" data-type="1">楼盘</view>
+      <view class="tab-item {{ type == 2 ? 'active' : ''}}" bindtap="changeTab" data-type="2">车位</view>
+    </view>
+    <view class="index-handle" bindtap="handle">管理</view>
+  </view>
+  <view class="index-body" wx:if="{{list.length}}">
+    <scroll-view scroll-y style="height: calc(100vh - 101px);" bindscrolltolower="loadMore">
+      <view class="floor {{isHandle ? 'padding' : ''}}" wx:if="{{type == 1}}">
+        <van-swipe-cell right-width="{{ 65 }}" wx:for="{{list}}" wx:key="index">
+          <navigator url="/pages/carport/detail/index?id={{item.realEstateInfoId}}" hover-class="none" class="item">
+            <van-checkbox wx:if="{{isHandle}}" value="{{ item.isSelect }}" checked-color="#FF4D57" bind:change="selectFloor" data-index="{{index}}"></van-checkbox>
+            <view class="item-img" style="margin-left: {{ isHandle ? 10 : 0 }}rpx;background-image: url({{filter.filterUrl(item.imgUrl)}});"></view>
+            <view class="item-bd">
+              <view class="item-name">{{item.estateName}}</view>
+              <view class="item-car">
+                <view class="item-car-label">在售车位：</view>
+                <view class="item-car-value">{{item.saleParkingNum}}个</view>
+              </view>
+              <view class="item-price">
+                <view class="item-price-label">购买价格：</view>
+                <view class="item-price-value">¥ {{item.salePriceRange}} 万</view>
+              </view>
+            </view>
+          </navigator>
+          <view class="item-delete" slot="right" bindtap="deleteFloor" data-item="{{item}}" data-index="{{index}}">删除</view>
+        </van-swipe-cell>
+      </view>
+      <view class="car {{isHandle ? 'padding' : ''}}" wx:else>
+        <van-swipe-cell right-width="{{ 65 }}" wx:for="{{list}}" wx:key="index">
+          <navigator url="/pages/carport/carDetail/index?id={{item.parkingInfoId}}" hover-class="none" class="item">
+            <van-checkbox wx:if="{{isHandle}}" value="{{ item.isSelect }}" checked-color="#FF4D57" bind:change="selectFloor" data-index="{{index}}"></van-checkbox>
+            <view class="item-car-img" style="margin-left: {{ isHandle ? 10 : 0 }}rpx">
+              <view class="item-floor-name">{{item.floorName ? item.floorName : ''}}</view>
+              <view class="item-floor-code">{{item.parkingCode}}</view>
+            </view>
+            <view class="item-bd">
+              <view class="item-name">{{item.estateName}}</view>
+              <view class="item-car">
+                <view class="item-car-label">原价：</view>
+                <view class="item-car-value">¥ {{item.actualPrice}}</view>
+              </view>
+              <view class="item-price">
+                <view class="item-price-label">活动价：</view>
+                <view class="item-price-value">¥ {{item.salePrice}}</view>
+              </view>
+            </view>
+          </navigator>
+          <view class="item-delete" slot="right" bindtap="deleteCar" data-item="{{item}}" data-index="{{index}}">删除</view>
+        </van-swipe-cell>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="index-empty" wx:else>
+    <view class="index-empty-icon">
+      <i class="iconfont icon-car"></i>
+    </view>
+    <view class="index-empty-info">您还没有收藏{{type == 1 ? '楼盘' : '车位'}}</view>
+  </view>
+  <view class="index-footer" wx:if="{{isHandle}}">
+    <van-checkbox value="{{ radio }}" checked-color="#FF4D57" bind:change="changeRadio">全选</van-checkbox>
+    <view class="index-footer-btn" bindtap="batchDelete">删除</view>
+  </view>
+</view>

@@ -17,9 +17,6 @@
   padding: 10rpx 0;
 }
 .form-item-head {
-  flex: 1;
-}
-.form-item-head {
   width: 90rpx;
   height: 90rpx;
   border-radius: 50%;

@@ -15,7 +15,7 @@
       <view class="detail-header-info">
         <view class="detail-name">{{detail.estateName}}</view>
         <view class="detail-header-ft">
-          <van-icon name="star-o" size="40rpx"/>
+          <van-icon name="{{detail.favoriteStatus ? 'star' : 'star-o'}}" color="{{detail.favoriteStatus ? '#EC0D0D' : ''}}" size="40rpx" bindtap="collection"/>
           <view class="detail-tag">限时促销</view>
         </view>
       </view>
@@ -34,9 +34,86 @@
         </view>
       </view>
     </view>
-    <view class="detail-price">
-      <view class="detail-price-label">售价：</view>
-      <view class="detail-price-value">¥ {{detail.salePriceRange}} 万</view>
+    <view class="detail-price-bd">
+      <view class="detail-price">
+        <view class="detail-price-label">售价：</view>
+        <view class="detail-price-value">¥ {{detail.salePriceRange}} 万</view>
+      </view>
     </view>
+    <view class="detail-info">
+      <view class="detail-info-title">楼盘信息</view>
+      <view class="detail-info-bd">
+        <view class="detail-info-col">
+          <view class="detail-info-row">
+            <view class="detail-info-row-label">物业类型：</view>
+            <view class="detail-info-row-value">{{detail.propertyTypeName}}</view>
+          </view>
+          <view class="detail-info-row">
+            <view class="detail-info-row-label">交房时间：</view>
+            <view class="detail-info-row-value">{{detail.handoverDate}}</view>
+          </view>
+          <view class="detail-info-row">
+            <view class="detail-info-row-label">车位性质：</view>
+            <view class="detail-info-row-value">{{detail.parkingNature}}</view>
+          </view>
+          <view class="detail-info-row">
+            <view class="detail-info-row-label">车位已售：</view>
+            <view class="detail-info-row-value">{{detail.soldNum}}</view>
+          </view>
+        </view>
+        <view class="detail-info-col">
+          <view class="detail-info-row">
+            <view class="detail-info-row-label">销售情况：</view>
+            <view class="detail-info-row-value">{{detail.saleStatusName}}</view>
+          </view>
+          <view class="detail-info-row">
+            <view class="detail-info-row-label">入住率：</view>
+            <view class="detail-info-row-value">{{detail.occupancyRate}}</view>
+          </view>
+          <view class="detail-info-row">
+            <view class="detail-info-row-label">车位总数：</view>
+            <view class="detail-info-row-value">{{detail.onSaleNum}}</view>
+          </view>
+          <view class="detail-info-row">
+            <view class="detail-info-row-label">车位配比：</view>
+            <view class="detail-info-row-value">{{detail.parkingRatio}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="detail-info-more">
+        <view class="detail-info-row">
+          <view class="detail-info-row-label">车位类型：</view>
+          <view class="detail-info-row-value">{{detail.parkingType}}</view>
+        </view>
+        <view class="detail-info-row">
+          <view class="detail-info-row-label">周边车位：</view>
+          <view class="detail-info-row-value">{{detail.parkingSurroundingPrice}}</view>
+        </view>
+        <view class="detail-info-row">
+          <view class="detail-info-row-label">开发商：</view>
+          <view class="detail-info-row-value">{{detail.developerName}}</view>
+        </view>
+        <view class="detail-info-row">
+          <view class="detail-info-row-label">地址：</view>
+          <view class="detail-info-row-value">
+            <text>{{detail.address}}</text>
+            <i class="iconfont icon-position" bindtap="openLocation"></i>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="detail-floor">
+      <view class="detail-info-title">车位分布图</view>
+      <view class="detail-floor-list">
+        <scroll-view scroll-x class="detail-floor-scroll">
+          <view class="detail-floor-bd">
+              <view class="floor-item" wx:for="{{detail.floorViewList}}" wx:key="index" style="background-image: url({{filter.filterUrl(item.imgUrl)}});" bindtap="preview"></view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <view class="detail-footer">
+    <view class="footer-btn" bindtap="selectCar">选车位</view>
   </view>
 </view>

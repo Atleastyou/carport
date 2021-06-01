@@ -1,4 +1,5 @@
-import  { getDetail, getEstateParking } from '../../../api/index.js'
+import  { getDetail, getEstateParking, postCollection, cancelCollection } from '../../../api/index.js'
+const app = getApp()
 Page({
   data: {
     detailId: '',
@@ -22,8 +23,48 @@ Page({
       wx.showToast({ title: err.msg, icon: 'none' })
     }
   },
+  async collection() {
+    try {
+      if (this.data.detail.favoriteStatus) {
+        await cancelCollection({ favoriteType: 1, favoriteId: this.data.detail.realEstateInfoId })
+        this.setData({
+          'detail.favoriteStatus': 0
+        })
+        wx.showToast({ title: '取消收藏！', icon: 'none' })
+      } else {
+        await postCollection({ favoriteType: 1, favoriteId: this.data.detail.realEstateInfoId })
+        this.setData({
+          'detail.favoriteStatus': 1
+        })
+        wx.showToast({ title: '收藏成功！', icon: 'none' })
+      }
+    } catch (err) {
+      wx.showToast({ title: err.msg, icon: 'none' })
+    }
+  },
+  openLocation() {
+    let that = this
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        wx.openLocation({
+          latitude: res.latitude,
+          longitude: res.longitude,
+          name: that.data.detail.address
+        })
+      }
+    })
+    
+  },
   changeCurrent({detail}) {
     this.setData({ indicatorIndex: detail.current + 1 })
+  },
+  selectCar() {
+    if (this.data.detail.floorViewList.length <= 1) {
+      wx.$nav.navigateTo('/pages/carportSelect/index', { id: this.data.detail.realEstateInfoId })
+    } else {
+      
+    }
   },
   onLoad({ id }) {
     this.setData({ detailId: id })

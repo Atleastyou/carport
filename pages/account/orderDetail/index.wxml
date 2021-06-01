@@ -1,28 +1,29 @@
+<wxs module="filter" src="../../../utils/filter/filter.wxs"></wxs>
 <view class="detail">
   <view class="detail-header">
     <view class="detail-header-bd">
       <view class="status-icon">
-        <!-- <i class="iconfont icon-dollar"></i> -->
-        <!-- <i class="iconfont icon-audit"></i> -->
-        <!-- <i class="iconfont icon-complete"></i> -->
-        <i class="iconfont icon-approve"></i>
+        <i class="iconfont icon-dollar" wx:if="{{detail.orderStatus == 0}}"></i>
+        <i class="iconfont icon-audit" wx:if="{{detail.orderStatus == 1}}"></i>
+        <i class="iconfont icon-complete" wx:if="{{detail.orderStatus == 2}}"></i>
+        <!-- <i class="iconfont icon-approve"></i> -->
       </view>
-      <!-- <view class="order-status-bd">
+      <view class="order-status-bd" wx:if="{{detail.orderStatus == 0}}">
         <view class="status-title">待付款</view>
         <view class="status-info">剩24小时00分自动关闭</view>
-      </view> -->
-     <!-- <view class="order-status-bd">
+      </view>
+     <view class="order-status-bd" wx:if="{{detail.orderStatus == 1}}">
         <view class="status-title">待审核</view>
         <view class="status-info">认购确认中，请耐心等候~~~~</view>
-      </view> -->
-      <!-- <view class="order-status-bd">
+      </view>
+      <view class="order-status-bd" wx:if="{{detail.orderStatus == 2}}">
         <view class="status-title">已完成</view>
         <view class="status-info">恭喜您，交易成功啦~~~</view>
-      </view> -->
-      <view class="order-status-bd">
+      </view>
+    <!--  <view class="order-status-bd">
         <view class="status-title">订单关闭</view>
         <view class="status-info">交易关闭啦，再看看其他车位吧~~~</view>
-      </view>
+      </view> -->
     </view>
   </view>
   <view class="detail-body">
@@ -31,28 +32,28 @@
       <view class="detail-user-bd">
         <view class="detail-user-item">
           <view class="detail-user-label">购买人：</view>
-          <view class="detail-user-value">张xxx</view>
+          <view class="detail-user-value">{{detail.username}}</view>
         </view>
         <view class="detail-user-item">
           <view class="detail-user-label">手机号：</view>
-          <view class="detail-user-value">15115698562</view>
+          <view class="detail-user-value">{{detail.mobile}}</view>
         </view>
       </view>
     </view>
     <view class="detail-section">
       <view class="detail-section-title">车位概况</view>
       <view class="detail-section-floor">
-        <view class="detail-floor-img"></view>
+        <view class="detail-floor-img" style="background-image: url({{filter.filterUrl(detail.imgUrl)}});"></view>
         <view class="detail-floor-bd">
-          <view class="detail-floor-name">万科云城●理想城一期</view>
-          <view class="detail-floor-position">A1层A区：A003号车位</view>
+          <view class="detail-floor-name">{{detail.estateName}}</view>
+          <view class="detail-floor-position">{{detail.floorName ? detail.floorName + '：' : ''}}{{detail.parkingCode}}</view>
           <view class="detail-floor-item">
             <view class="detail-floor-label">原价：</view>
-            <view class="detail-floor-value">¥188888.00</view>
+            <view class="detail-floor-value">¥{{detail.actualPrice}}</view>
           </view>
           <view class="detail-floor-item">
             <view class="detail-floor-label">活动价：</view>
-            <view class="detail-floor-value .activity">¥188888.00</view>
+            <view class="detail-floor-value .activity">¥{{detail.salePrice}}</view>
           </view>
         </view>
       </view>
@@ -60,29 +61,29 @@
         <view class="info-col">
           <view class="info-item">
             <view class="info-item-label">车位类型：</view>
-            <view class="info-item-value">微型</view>
+            <view class="info-item-value">{{detail.parkingType ? detail.parkingType : '暂无' }}</view>
           </view>
           <view class="info-item">
             <view class="info-item-label">车位长：</view>
-            <view class="info-item-value">微型</view>
+            <view class="info-item-value">{{detail.width ? detail.width : '暂无'}}</view>
           </view>
           <view class="info-item">
             <view class="info-item-label">使用面积：</view>
-            <view class="info-item-value">微型</view>
+            <view class="info-item-value">{{detail.width && detail.height ? detail.width + '*' + detail.height : '暂无' }}</view>
           </view>
         </view>
         <view class="info-col">
           <view class="info-item">
             <view class="info-item-label">车位性质：</view>
-            <view class="info-item-value">微型</view>
+            <view class="info-item-value">暂无</view>
           </view>
           <view class="info-item">
             <view class="info-item-label">车位宽：</view>
-            <view class="info-item-value">微型</view>
+            <view class="info-item-value">{{detail.height ? detail.height : '暂无' }}</view>
           </view>
           <view class="info-item">
             <view class="info-item-label">产权年限：</view>
-            <view class="info-item-value">微型</view>
+            <view class="info-item-value">{{detail.serviceLife ? detail.serviceLife : '暂无' }}</view>
           </view>
         </view>
       </view>
@@ -92,19 +93,19 @@
       <view class="detail-section-bd">
         <view class="info-item">
           <view class="info-item-label">订单编号：</view>
-          <view class="info-item-value">微型</view>
+          <view class="info-item-value">{{detail.orderNo ? detail.orderNo : '暂无'}}</view>
         </view>
         <view class="info-item">
           <view class="info-item-label">订单状态：</view>
-          <view class="info-item-value">微型</view>
+          <view class="info-item-value">{{filter.filterStatus(detail.orderStatus)}}</view>
         </view>
         <view class="info-item">
           <view class="info-item-label">创建时间：</view>
-          <view class="info-item-value">微型</view>
+          <view class="info-item-value">{{detail.createTime}}</view>
         </view>
         <view class="info-item">
           <view class="info-item-label">付款时间：</view>
-          <view class="info-item-value">微型</view>
+          <view class="info-item-value">{{detail.payTime ? detail.payTime : '暂无'}}</view>
         </view>
       </view>
     </view>
@@ -112,9 +113,9 @@
   <view class="detail-footer">
     <view class="detail-total">
       <view class="detail-total-label">总价：</view>
-      <view class="detail-total-value">¥188888.00</view>
+      <view class="detail-total-value">¥{{detail.actualPayPrice}}</view>
     </view>
-    <!-- <view class="detail-btn">支 付</view> -->
-    <view class="detail-btn">删 除</view>
+    <view class="detail-btn" wx:if="{{detail.orderStatus == 0}}">支 付</view>
+    <!-- <view class="detail-btn">删 除</view> -->
   </view>
 </view>

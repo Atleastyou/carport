@@ -8,12 +8,12 @@
     bindtouchcancel="end"
     bindtouchend="end"
   >
-    <image class="detail-image" src="{{filter.filterUrl('/parking/mini/file/test/floor/test01.svg')}}" bindload="imageLoading">
+    <image class="detail-image" src="{{filter.filterUrl(imageInfo.imgUrl)}}" bindload="imageLoading">
       <view
         class="tag-item"
         wx:for="{{tags}}"
         wx:key="index"
-        style="width: {{item.width}}px;height: {{item.height}}px;background-color: {{item.color}};top: {{item.pageY - 10}}px;left: {{item.pageX - 10}}px;transform: rotate({{item.rotate}}deg);"
+        style="width: {{item.width}}px;height: {{item.height}}px;background-color: {{item.bgColor}};top: {{item.pageY - 10}}px;left: {{item.pageX - 10}}px;transform: rotate({{item.rotate}}deg);"
         bindtap="clickTag"
         data-item="{{item}}"
       >

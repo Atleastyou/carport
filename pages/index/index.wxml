@@ -35,7 +35,7 @@
     </view>
     <view class="content-body" wx:if="{{list.length}}">
       <view class="item-body" wx:for="{{list}}" wx:key="index">
-        <view class="item-container">
+        <navigator class="item-container" url="/pages/carport/detail/index?id={{item.realEstateInfoId}}" hover-class>
           <view class="item-img" style="background-image: url({{filter.filterUrl(item.imgUrl)}});"></view>
           <view class="item-name">
             <view class="item-name-bd">{{item.estateName}}</view>
@@ -43,7 +43,7 @@
           </view>
           <view class="item-num">在售车位：{{item.saleParkingNum}}</view>
           <view class="item-price">¥{{item.salePriceRange}}</view>
-        </view>
+        </navigator>
       </view>
     </view>
     <view class="item-empty" wx:else>
