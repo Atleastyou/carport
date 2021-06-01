@@ -31,7 +31,7 @@
           <view class="house-item-title">{{item.estateName}}</view>
           <view class="house-item-num">
             <view class="house-item-num-label">在售车位</view>
-            <view class="house-item-num-bd">{{item.saleParkingNum}}个</view>
+            <view class="house-item-num-bd">{{item.saleParkingNum ? item.saleParkingNum + '个' : '无'}}</view>
           </view>
           <view class="house-item-num">
             <view class="house-item-num-label">购买价格</view>

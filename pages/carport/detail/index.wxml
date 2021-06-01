@@ -46,25 +46,25 @@
         <view class="detail-info-col">
           <view class="detail-info-row">
             <view class="detail-info-row-label">物业类型：</view>
-            <view class="detail-info-row-value">{{detail.propertyTypeName}}</view>
+            <view class="detail-info-row-value">{{detail.propertyTypeName ? detail.propertyTypeName : '无'}}</view>
           </view>
           <view class="detail-info-row">
             <view class="detail-info-row-label">交房时间：</view>
-            <view class="detail-info-row-value">{{detail.handoverDate}}</view>
+            <view class="detail-info-row-value">{{detail.handoverDate ? detail.handoverDate : '无'}}</view>
           </view>
           <view class="detail-info-row">
             <view class="detail-info-row-label">车位性质：</view>
-            <view class="detail-info-row-value">{{detail.parkingNature}}</view>
+            <view class="detail-info-row-value">{{detail.parkingNature ? detail.parkingNature : '无'}}</view>
           </view>
           <view class="detail-info-row">
             <view class="detail-info-row-label">车位已售：</view>
-            <view class="detail-info-row-value">{{detail.soldNum}}</view>
+            <view class="detail-info-row-value">{{detail.soldNum ? detail.soldNum : '无'}}</view>
           </view>
         </view>
         <view class="detail-info-col">
           <view class="detail-info-row">
             <view class="detail-info-row-label">销售情况：</view>
-            <view class="detail-info-row-value">{{detail.saleStatusName}}</view>
+            <view class="detail-info-row-value">{{detail.saleStatusName ? detail.saleStatusName : '无'}}</view>
           </view>
           <view class="detail-info-row">
             <view class="detail-info-row-label">入住率：</view>

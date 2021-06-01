@@ -86,6 +86,11 @@ const batchCollection = (data) => fetch({
   method: 'POST',
   data
 })
+// 获取首页banner
+const getBanner = (data) => fetch({
+  url: `/sys/index/banner`,
+})
+
 
 export {
   wxLogin,
@@ -104,5 +109,6 @@ export {
   getOrderList,
   getOrderDetail,
   getCollectionList,
-  batchCollection
+  batchCollection,
+  getBanner
 }

@@ -20,7 +20,7 @@
     <swiper indicator-dots autoplay easing-function="easeInOutCubic">
       <block wx:for="{{banners}}" wx:key="index">
         <swiper-item>
-          <view class="swiper-banner" style="background-image: url({{item}});"></view>
+          <view class="swiper-banner" style="background-image: url({{filter.filterUrl(item.imgUrl)}});"></view>
         </swiper-item>
       </block>
     </swiper>
@@ -41,7 +41,7 @@
             <view class="item-name-bd">{{item.estateName}}</view>
             <view class="item-name-tag">促销中</view>
           </view>
-          <view class="item-num">在售车位：{{item.saleParkingNum}}</view>
+          <view class="item-num">在售车位：{{item.saleParkingNum ? item.saleParkingNum : '无'}}</view>
           <view class="item-price">¥{{item.salePriceRange}}</view>
         </navigator>
       </view>

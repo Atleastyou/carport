@@ -1,13 +1,9 @@
 const app = getApp()
-import { getEstateList, getCity } from '../../api/index.js'
+import { getEstateList, getCity, getBanner } from '../../api/index.js'
 
 Page({
   data: {
-    banners: [
-      '../../images/banner1.jpeg',
-      '../../images/banner2.jpeg',
-      '../../images/banner3.jpeg'
-    ],
+    banners: [],
     list: [],
     current: 1,
     size: 20,
@@ -37,6 +33,15 @@ Page({
     this.setData({ citys: this.data.citys })
     this.getList()
     this.selectComponent('#dropdown').toggle()
+  },
+  async getBanner() {
+    try {
+      const { data } = await getBanner()
+      console.log(data)
+      this.setData({ banners: data })
+    } catch (err) {
+      wx.showToast({ title: err.msg, icon: 'none' })
+    }
   },
   async getCity() {
     try {
@@ -84,6 +89,7 @@ Page({
     this.loadMore()
   },
   onLoad() {
+    this.getBanner()
     this.getList()
     this.getCity()
   },
