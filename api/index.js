@@ -90,6 +90,10 @@ const batchCollection = (data) => fetch({
 const getBanner = (data) => fetch({
   url: `/sys/index/banner`,
 })
+// // 获取平台联系信息
+// const getBanner = (data) => fetch({
+//   url: `/sys/customer/service/info/`,
+// })
 
 
 export {

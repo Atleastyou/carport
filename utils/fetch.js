@@ -1,4 +1,5 @@
 const { miniProgram: { envVersion } } = wx.getAccountInfoSync()
+import { wxLogin } from '../api/index.js'
 
 const baseUrl = {
   // 开发版
@@ -24,12 +25,21 @@ const fetch = (params = {}) => {
 
   // 返回promise
   return wx.$pro.request({ ...params })
-    .then(({ data }) => {
+    .then(async ({ data }) => {
       // 保存cookie
       if (data && data.data && data.data.token) wx.setStorageSync('cookie', data.data.token)
       // ... 各种异常情况的逻辑处理
       if (data.code === 0) return Promise.resolve(data)
-      return Promise.reject(data)
+      else if (data.code === 200100002) againLogin()
+      else return Promise.reject(data)
     })
+}
+let againLogin = async function () {
+  try {
+    const { code } = await wx.$pro.login()
+    await wxLogin({ code: code })
+  } catch (err) {
+    console.log(err)
+  }
 }
 export { fetch }

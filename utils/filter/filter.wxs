@@ -20,10 +20,19 @@ var filter = {
         break
     }
     return text
+  },
+  formatRule: function (val) {
+    if(val){
+      var pattern = "\\\\n"
+      var target = "\n"
+      var reg = getRegExp(pattern, "g")
+      return val.replace(reg, target)
+    }
   }
 }
 
 module.exports = {
   filterUrl: filter.filterUrl,
-  filterStatus: filter.filterStatus
+  filterStatus: filter.filterStatus,
+  formatRule: filter.formatRule
 }

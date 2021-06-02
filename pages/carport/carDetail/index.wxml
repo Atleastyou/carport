@@ -5,7 +5,7 @@
     <view class="detail-body">
       <view class="detail-body-title">车位概况</view>
       <view class="car-detail">
-        <view class="car-floor" style="background-image: url({{filter.filterUrl(detail.imgUrl)}});"></view>
+        <view class="car-floor" wx:if="{{detail.imgUrl}}" style="background-image: url({{filter.filterUrl(detail.imgUrl)}});"></view>
         <view class="car-detail-bd">
           <view class="car-detail-name">{{detail.estateName}}</view>
           <view class="car-detail-address">{{detail.floorName ? detail.floorName + '：' : ''}}{{detail.parkingCode}}</view>
@@ -48,6 +48,9 @@
             <view class="car-row-value">{{detail.serviceLife ? detail.serviceLife : '暂无'}}</view>
           </view>
         </view>
+      </view>
+      <view class="index-text">
+        <text wx:if="{{detail.evaluation}}">{{filter.formatRule(detail.evaluation)}}</text>
       </view>
     </view>
   </view>

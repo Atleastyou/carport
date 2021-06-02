@@ -27,6 +27,12 @@ Page({
   handle() {
     this.setData({ isHandle: !this.data.isHandle })
   },
+  seeFloorDetail({ currentTarget: { dataset: { item } } }) {
+    wx.$nav.navigateTo('/pages/carport/detail/index', { id: item.realEstateInfoId })
+  },
+  seeCarDetail({ currentTarget: { dataset: { item } } }) {
+    wx.$nav.navigateTo('/pages/carport/carDetail/index', { id: item.parkingInfoId })
+  },
   async batchDelete() {
     try {
       let ids = []

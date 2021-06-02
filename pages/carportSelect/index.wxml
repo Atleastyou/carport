@@ -9,11 +9,16 @@
     bindtouchend="end"
   >
     <image class="detail-image" src="{{filter.filterUrl(imageInfo.imgUrl)}}" bindload="imageLoading">
+      <!-- <canvas
+        canvas-id="myCanvas"
+        style="width: {{imageInfo.width}}px;height:{{imageInfo.height}}px;position: absolute;left: 0;top: 0;z-index: -1;"
+        bindtouchstart="canvasStart"
+      ></canvas> -->
       <view
         class="tag-item"
         wx:for="{{tags}}"
         wx:key="index"
-        style="width: {{item.width}}px;height: {{item.height}}px;background-color: {{item.bgColor}};top: {{item.pageY - 10}}px;left: {{item.pageX - 10}}px;transform: rotate({{item.rotate}}deg);"
+        style="width: {{item.width}}px;height: {{item.height}}px;background-color: {{item.color}};top: {{item.pageY}}px;left: {{item.pageX}}px;transform: rotate({{item.rotation}}deg); transform-origin: left top;"
         bindtap="clickTag"
         data-item="{{item}}"
       >

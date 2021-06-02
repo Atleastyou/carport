@@ -38,7 +38,6 @@ Page({
     }
   },
   onLoad({ id }) {
-    
     this.setData({ carId: id, userInfo: app.globalData.userInfo })
     this.getCarDetail()
   }

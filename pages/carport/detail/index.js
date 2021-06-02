@@ -4,7 +4,8 @@ Page({
   data: {
     detailId: '',
     indicatorIndex: 1,
-    detail: {}
+    detail: {},
+    touchStartTime: 0
   },
   async getDetail() {
     try {
@@ -60,11 +61,13 @@ Page({
     this.setData({ indicatorIndex: detail.current + 1 })
   },
   selectCar() {
-    if (this.data.detail.floorViewList.length <= 1) {
-      wx.$nav.navigateTo('/pages/carportSelect/index', { id: this.data.detail.realEstateInfoId })
-    } else {
-      
+    wx.$nav.navigateTo('/pages/carportSelect/index', { id: this.data.detail.realEstateInfoId })
+  },
+  preview(e) {
+    if (e.timeStamp - this.data.touchStartTime < 300) {
+      wx.$nav.navigateTo('/pages/carportSelect/index', { id: e.currentTarget.dataset.item.floorInfoId })
     }
+    this.setData({ touchStartTime: e.timeStamp })
   },
   onLoad({ id }) {
     this.setData({ detailId: id })

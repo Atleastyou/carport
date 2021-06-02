@@ -107,7 +107,7 @@
       <view class="detail-floor-list">
         <scroll-view scroll-x class="detail-floor-scroll">
           <view class="detail-floor-bd">
-              <view class="floor-item" wx:for="{{detail.floorViewList}}" wx:key="index" style="background-image: url({{filter.filterUrl(item.imgUrl)}});" bindtap="preview"></view>
+              <view class="floor-item" wx:for="{{detail.floorViewList}}" wx:key="index" style="background-image: url({{filter.filterUrl(item.imgUrl)}});" bindtap="preview" data-item="{{item}}"></view>
           </view>
         </scroll-view>
       </view>
